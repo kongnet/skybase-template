@@ -7,7 +7,7 @@ const assert = require('assert')
 const path = require('path')
 const proPath = '..'
 const proCnf = require(path.join(proPath, 'config'))
-const skyCnf = require('../node_modules/skybase/config.js')
+const skyCnf = require('../node_modules/skybase/skyconfig.js')
 let apiCnf = $.requireAll(path.join(__dirname, proPath, skyCnf.apiDir))
 
 let apiArr=[]
