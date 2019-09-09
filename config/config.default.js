@@ -43,4 +43,38 @@ module.exports = {
     host: '10.0.2.31:9092,172.16.64.35:9092',
     topic: 'appRequest'
   }
+  /* 这段打开后，属性会冲掉原来skybase配置，否则使用默认skybase
+  ,
+  name: packageJson.name,
+  tokenName: packageJson.name,
+  rootDir: path.dirname(process.mainModule.filename),
+  apiDir: './model/api',
+  routerDir: './router',
+  serviceDir: '',
+  logger: true,
+  middlewareDir: './middleware',
+  staticDir: './www',
+  middlewares: [ // 自己实现的middle 不能以 sky- 开头
+    'sky-cors',
+    'sky-body-parse',
+    'sky-static-server',
+    'sky-check-param',
+    'sky-check-token',
+    //'sample-middleware', //自定义例子打开
+    'sky-output',
+    'sky-api-register'
+  ],
+  bodyParse: {
+    multipart: !0,
+    formLimit: '100mb', // 100M 文件上传限制
+    jsonLimit: '2mb', // body中json格式大小限制
+    textLimit: '2mb', //
+    extendTypes: {
+      custom: [
+        'text/xml'
+      ]
+    }
+  }
+
+  */
 }

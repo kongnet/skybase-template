@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/kongnet/skybase-template/compare/v0.1.1...v0.1.2) (2019-09-06)
+
+
+### :art:
+
+* 修改根目录config -> skyconfig ([ea111c3](https://github.com/kongnet/skybase-template/commit/ea111c3))
+
+
+
 ## [0.1.1](https://github.com/kongnet/skybase-template/compare/03a6859...v0.1.1) (2019-09-05)
 
 
