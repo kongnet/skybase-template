@@ -1,3 +1,12 @@
+## [0.1.3](https://github.com/kongnet/skybase-template/compare/v0.1.2...v0.1.3) (2019-09-09)
+
+
+### :sparkles:
+
+* 增加中间件例子 ([e4d6c09](https://github.com/kongnet/skybase-template/commit/e4d6c09))
+
+
+
 ## [0.1.2](https://github.com/kongnet/skybase-template/compare/v0.1.1...v0.1.2) (2019-09-06)
 
 

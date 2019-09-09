@@ -10,7 +10,7 @@
     "cz": "git add . && git status && git cz"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "amqplib": "^0.5.3",
     "ioredis": "^4.9.5",
