@@ -19,6 +19,7 @@
     "cz-jt": "*",
     "mock": "*",
     "skybase": "*",
+    "skyrts": "*",
     "meeko": "*",
     "standard": "^12.0.1"
   },

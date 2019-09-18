@@ -1,3 +1,12 @@
+## [0.1.5](https://github.com/kongnet/skybase-template/compare/v0.1.4...v0.1.5) (2019-09-18)
+
+
+### :sparkles:
+
+* 增加统计功能 ([60d9fb0](https://github.com/kongnet/skybase-template/commit/60d9fb0))
+
+
+
 ## [0.1.4](https://github.com/kongnet/skybase-template/compare/v0.1.3...v0.1.4) (2019-09-09)
 
 

@@ -40,7 +40,7 @@ config.beforeMount = async () => {
 }
 
 sky.start(config, async () => {
-  console.log('t2 项目成功启动')
+  console.log('{{d.proName}} 项目成功启动')
   console.log('http://127.0.0.1:13000/skyapi/mock/first', '查看mock例子')
   console.log('http://127.0.0.1:13000/skyapi/probe/mysql', '查看探针例子')
   console.log('http://127.0.0.1:13000/skyapi/sky-stat/getOne?api=_skyapi_sky-stat_getAll&type=chart', '某接口5m 1h 1d图形统计')
