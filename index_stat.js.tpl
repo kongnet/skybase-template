@@ -1,7 +1,7 @@
 const sky = require('skybase')
-const config = require('./config')
+let config = require('./config')
 const Pack = require('./package.json')
-const skyConfig =require('./skyconfig')
+const skyConfig = require('./skyconfig')
 const $ = require('meeko')
 
 config.beforeMount = async () => {

@@ -1,3 +1,12 @@
+## [0.1.8](https://github.com/kongnet/skybase-template/compare/v0.1.7...v0.1.8) (2019-09-23)
+
+
+### :art:
+
+* 增加占位图片mock例子 ([64de25d](https://github.com/kongnet/skybase-template/commit/64de25d))
+
+
+
 ## [0.1.7](https://github.com/kongnet/skybase-template/compare/v0.1.6...v0.1.7) (2019-09-18)
 
 
