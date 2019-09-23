@@ -2,7 +2,7 @@
 /* global $ */
 
 const Mock = require('mockjs')
-Mock.Random.extend($.Mock)
+Mock.Random.extend($.Mock) // 加载meeko中 mock扩展函数
 
 module.exports = {
   noMock,

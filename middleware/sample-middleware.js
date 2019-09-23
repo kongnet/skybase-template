@@ -5,8 +5,12 @@
 
 /* global $ redis */
 module.exports = async (ctx, next) => {
-  let needToken = ctx.apiSetting.needSign
-  //$.log('====',ctx.apiSetting)
-  $.log(ctx.method === 'get' ? ctx.query || {} : ctx.request.fields || ctx.body || {})
+  $.log('sample-middleware自定义中间件截取并返回',ctx.method,ctx.method === 'GET' ? ctx.query || {} : ctx.request.fields || ctx.body || {})
+  let ip = ctx.req.headers['x-forwarded-for'] ||
+  ctx.req.connection.remoteAddress ||
+  ctx.req.socket.remoteAddress ||
+  ctx.req.connection.socket.remoteAddress
+  console.log(ip,ctx.req.url)//,$G.api
+
   next && await next()
 }

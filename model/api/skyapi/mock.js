@@ -62,5 +62,23 @@ module.exports = {
     'token': false,
     'needSign': false,
     'front': true
+  },
+  'img':{
+    name: '模拟函数widthxheight图片',
+    desc: '模拟函数图片',
+    method: 'get',
+    controller: 'mock/img.genImg',
+    param: {
+      size: {
+        name: 'widthxheight',
+        desc: '图片长宽',
+        def: '100x100',
+        type: 'string'
+      }
+    },
+    test: {},
+    'token': false,
+    'needSign': false,
+    'front': true
   }
 }
