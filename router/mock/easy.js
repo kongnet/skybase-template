@@ -1,7 +1,6 @@
 
 /* global $ */
 let request = require('request-promise-native')
-let cheerio = require('cheerio')
 async function req(url = 'http://www.baidu.com', isJson = false ,proxy) {
   let body = await request({
     method:'GET',
