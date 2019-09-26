@@ -33,8 +33,23 @@
     }
   },
   "dependencies": {
-    "meeko": "^1.8.20",
+    "cheerio": "^1.0.0-rc.3",
+    "meeko": "^1.8.23",
+    "request-promise-native": "^1.0.7",
     "skybase": "^0.1.58",
     "skyrts": "^0.1.2"
+  },
+  "standard": {
+    "globals": [
+      "$",
+      "describe",
+      "it",
+      "define",
+      "db"
+    ],
+    "ignore": [
+      "/lib/tpl.js",
+      "/lib/Snowflake.js"
+    ]
   }
 }

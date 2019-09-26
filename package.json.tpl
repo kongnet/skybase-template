@@ -21,7 +21,8 @@
     "skybase": "*",
     "skyrts": "*",
     "meeko": "*",
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "request-promise-native": "^1.0.7"
   },
   "devDependencies": {
     "mocha": "^6.2.0"

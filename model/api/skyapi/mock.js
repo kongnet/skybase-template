@@ -43,6 +43,11 @@ module.exports = {
         img: '@genEnum([\'https://\',\'http://\'])resource.xxx.com/@genData(\'0123456789\',11)/company/moments/@genData(\'abcdefghijklmnopqrstuvwxyz0123456789\',32).jpeg',
         bingImg: 'https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture',
         skuCode: /NO-\d{4}-\d{4}-\d{2}/,
+        arrList: `@genList(10)`,
+        arrList2: `@genList(10,2)`,
+        svg: '@genImg()',
+        svg1: '@genImg({isText:"n"})',
+        svg2: '@genImg({size:"100"})',
         'list|5-10': [
           /\d{8,8}/
         ]
@@ -76,6 +81,57 @@ module.exports = {
         type: 'string'
       }
     },
+    test: {},
+    'token': false,
+    'needSign': false,
+    'front': true
+  },
+  'getEmpty':{
+    name: 'getEmpty',
+    desc: 'getEmpty',
+    method: 'get',
+    controller: 'mock/easy.getEmpty',
+    param: {},
+    test: {},
+    'token': false,
+    'needSign': false,
+    'front': true
+  },
+  'getHtml':{
+    name: 'getHtml',
+    desc: 'getHtml',
+    method: 'get',
+    controller: 'mock/easy.getHtml',
+    param: {},
+    test: {},
+    'token': false,
+    'needSign': false,
+    'front': true
+  },
+  'getUrl':{
+    name: 'getUrl',
+    desc: 'getUrl',
+    method: 'get',
+    controller: 'mock/easy.getUrl',
+    param: {
+      url: {
+        name: 'url',
+        desc: '获取url内容',
+        def: 'http://www.baidu.com',
+        type: 'string'
+      }
+    },
+    test: {},
+    'token': false,
+    'needSign': false,
+    'front': true
+  },
+  'getBing':{
+    name: 'getBing',
+    desc: 'getBing',
+    method: 'get',
+    controller: 'mock/easy.getBing',
+    param: {},
     test: {},
     'token': false,
     'needSign': false,
