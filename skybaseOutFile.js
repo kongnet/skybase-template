@@ -36,6 +36,7 @@ function genConfig (obj) {
         'stat.js': [path.join(dir, 'router', 'sky-stat', 'stat.js'), obj, '统计router']
       },
       'mock': {
+        'easy.js': [path.join(dir, 'router', 'mock', 'easy.js'), obj, '一些简单的例子'],
         'img.js': [path.join(dir, 'router', 'mock', 'img.js'), obj, '统计router']
       }
     },

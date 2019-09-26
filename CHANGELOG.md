@@ -1,3 +1,12 @@
+## [0.1.11](https://github.com/kongnet/skybase-template/compare/v0.1.10...v0.1.11) (2019-09-26)
+
+
+### :sparkles:
+
+* 增加简单的范例在easy路径下 ([77c9bb1](https://github.com/kongnet/skybase-template/commit/77c9bb1))
+
+
+
 ## [0.1.10](https://github.com/kongnet/skybase-template/compare/v0.1.9...v0.1.10) (2019-09-24)
 
 
