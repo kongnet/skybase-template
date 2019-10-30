@@ -55,6 +55,5 @@ sky.start(config, async () => {
       dbExt(db[i].ext,i)
     }
   }
-
   //$.log(await db.t1.R({d_flag:0}, {}, {c_time:-1}, 10000).run(0))
 })

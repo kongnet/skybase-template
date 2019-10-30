@@ -8,7 +8,7 @@ module.exports = {
     name: 'mock数据接口',
     description: 'mock数据接口 - 在mock基础上扩展了若干模拟函数'
   },
-  'first': {
+  first: {
     name: '模拟函数返回测试',
     desc: '模拟函数返回测试支持get/post',
     method: 'all',
@@ -19,7 +19,7 @@ module.exports = {
       'list|1-2': [{
         // 属性 id 是一个自增数，起始值为 1，每次增 1
         'id|+1': 100,
-        'name': '@genName()',
+        name: '@genName()',
         str: '@genData(\'abcdefghijklmnopqrstuvwxyz\',10)',
         datetime: '@genDatetime(\'2016-1-1\', \'2020-1-1\')',
         chineseCard: '@genCard()',
@@ -43,8 +43,8 @@ module.exports = {
         img: '@genEnum([\'https://\',\'http://\'])resource.xxx.com/@genData(\'0123456789\',11)/company/moments/@genData(\'abcdefghijklmnopqrstuvwxyz0123456789\',32).jpeg',
         bingImg: 'https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture',
         skuCode: /NO-\d{4}-\d{4}-\d{2}/,
-        arrList: `@genList(10)`,
-        arrList2: `@genList(10,2)`,
+        arrList: '@genList(10)',
+        arrList2: '@genList(10,2)',
         svg: '@genImg()',
         svg1: '@genImg({isText:"n"})',
         svg2: '@genImg({size:"100"})',
@@ -56,19 +56,19 @@ module.exports = {
     err_code: {
       200: {
         temp: {
-          'data': { },
-          'code': 0,
-          'msg': 'ok',
-          't': 1559204889719
+          data: { },
+          code: 0,
+          msg: 'ok',
+          t: 1559204889719
         }
       }
     },
     test: {},
-    'token': false,
-    'needSign': false,
-    'front': true
+    token: false,
+    needSign: false,
+    front: true
   },
-  'img':{
+  img: {
     name: '模拟函数widthxheight图片',
     desc: '模拟函数图片',
     method: 'get',
@@ -82,33 +82,33 @@ module.exports = {
       }
     },
     test: {},
-    'token': false,
-    'needSign': false,
-    'front': true
+    token: false,
+    needSign: false,
+    front: true
   },
-  'getEmpty':{
+  getEmpty: {
     name: 'getEmpty',
     desc: 'getEmpty',
     method: 'get',
     controller: 'mock/easy.getEmpty',
     param: {},
     test: {},
-    'token': false,
-    'needSign': false,
-    'front': true
+    token: false,
+    needSign: false,
+    front: true
   },
-  'getHtml':{
+  getHtml: {
     name: 'getHtml',
     desc: 'getHtml',
     method: 'get',
     controller: 'mock/easy.getHtml',
     param: {},
     test: {},
-    'token': false,
-    'needSign': false,
-    'front': true
+    token: false,
+    needSign: false,
+    front: true
   },
-  'getUrl':{
+  getUrl: {
     name: 'getUrl',
     desc: 'getUrl',
     method: 'get',
@@ -122,19 +122,19 @@ module.exports = {
       }
     },
     test: {},
-    'token': false,
-    'needSign': false,
-    'front': true
+    token: false,
+    needSign: false,
+    front: true
   },
-  'getBing':{
+  getBing: {
     name: 'getBing',
     desc: 'getBing',
     method: 'get',
     controller: 'mock/easy.getBing',
     param: {},
     test: {},
-    'token': false,
-    'needSign': false,
-    'front': true
+    token: false,
+    needSign: false,
+    front: true
   }
 }

@@ -1,15 +1,16 @@
 const sky = require('skybase')
 const config = require('./config')
 const $ = require('meeko')
+const SkyDB = require('j2sql2')
 
 config.beforeMount = async () => {
   // 连接mysql
 
-  const db = require('j2sql')(config.mysql)
-  await $.tools.waitNotEmpty(db, '_mysql')
+  const skyDB = new SkyDB({ mysql: config.mysql})
+  const db = await skyDB.mysql // 创建mysql实例
   global.db = db
 
-  /*
+  /* j2sql老的方案
   // 连接mysql main实例
   const dbMain = require('j2sql')(config.mysqlMain)
   await $.tools.waitNotEmpty(dbMain, '_mysql')

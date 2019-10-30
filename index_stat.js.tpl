@@ -3,17 +3,14 @@ let config = require('./config')
 const Pack = require('./package.json')
 const skyConfig = require('./skyconfig')
 const $ = require('meeko')
+const SkyDB = require('j2sql2')
 
 config.beforeMount = async () => {
-  // 连接mysql
-  const db = require('j2sql')(config.mysql)
-  await $.tools.waitNotEmpty(db, '_mysql')
+  const skyDB = new SkyDB({ mysql: config.mysql, redis: config.redis })
+  const db = await skyDB.mysql // 创建mysql实例
+  const rd = await skyDB.redis // 创建redis 实例
   global.db = db
-
-  // 连接redis 和 skyrts
-  const redis = sky.createIoredis(config.redis)
-  await redis.waitForConnected()
-  global.redis = redis
+  global.redis = rd
   global.rts = require('skyrts')({
     redis: redis,
     redisAsync: redis,
