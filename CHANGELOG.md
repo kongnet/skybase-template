@@ -1,3 +1,12 @@
+## [0.1.14](https://github.com/kongnet/skybase-template/compare/v0.1.13...v0.1.14) (2019-10-30)
+
+
+### :art:
+
+* 使用j2sql2 ([cbc9653](https://github.com/kongnet/skybase-template/commit/cbc9653c07b91e4cc0d750c9c6ce9f685ac462f5))
+
+
+
 ## [0.1.13](https://github.com/kongnet/skybase-template/compare/v0.1.12...v0.1.13) (2019-09-26)
 
 
