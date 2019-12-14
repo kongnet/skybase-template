@@ -1,3 +1,12 @@
+## [0.1.16](https://github.com/kongnet/skybase-template/compare/v0.1.15...v0.1.16) (2019-12-14)
+
+
+### :sparkles:
+
+* 增加上传例子 ([951ae17](https://github.com/kongnet/skybase-template/commit/951ae178f693d945ec28ef61003df7785c33c4c9))
+
+
+
 ## [0.1.15](https://github.com/kongnet/skybase-template/compare/v0.1.14...v0.1.15) (2019-11-29)
 
 
