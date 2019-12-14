@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>上传例子</title>
+  </head>
+
+  <body>
+    <div>
+      <input id="file" type="file" /><!--注意这里的id是file-->
+      <button id="submit">上传</button>
+    </div>
+    <div id="preview"></div>
+    <script>
+      function init () {
+        let demoUploadUrl = 'http://127.0.0.1:13000/skyapi/mock/upload'
+        let demoDownloadUrl = 'http://127.0.0.1:13000/upload/demo'
+        document.querySelector('#submit').addEventListener('click', e => {
+          let file = document.querySelector('#file').files[0]
+          if (!file) return
+          let form = new FormData()
+          form.append('file', file) // 往formdata的file字段加入目标文件
+          form.append('jsonstr', `{a:1,b:'x'}`) // 打开此功能测试
+          let XHR = new XMLHttpRequest()
+          XHR.open('post', demoUploadUrl)
+          XHR.send(form) // 上传
+          XHR.onreadystatechange = () => {
+            if (XHR.readyState === 4) {
+              // 接收结果
+              let res = JSON.parse(XHR.responseText)
+              if (res.code > 299) {
+                document.querySelector('#preview').innerHTML = res.msg
+                return
+              }
+              setTimeout(() => {
+                // 响应过快会访问不到文件?延时获取图片
+                document.querySelector('#preview').innerHTML = `
+                        <div>size: ${res.data.size}</div>
+                        <div>type: ${res.data.type}</div>
+                        <div>preview:<img src="${demoDownloadUrl}/${res.data.name}"/></div>
+                    `
+              }, 1000)
+            }
+          }
+        })
+      }
+      init()
+    </script>
+  </body>
+</html>

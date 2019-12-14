@@ -16,47 +16,49 @@ module.exports = {
     param: {},
     mock: {
       // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
-      'list|1-2': [{
-        // 属性 id 是一个自增数，起始值为 1，每次增 1
-        'id|+1': 100,
-        name: '@genName()',
-        str: '@genData(\'abcdefghijklmnopqrstuvwxyz\',10)',
-        datetime: '@genDatetime(\'2016-1-1\', \'2020-1-1\')',
-        chineseCard: '@genCard()',
-        url: '@genUrl(5)',
-        phoneNum: '@genPhone()',
-        color: '@genColor()',
-        colorRGBA: '@genColor(\'rgba\')',
-        ip: '@genIp()',
-        word10: '@genWord(10)',
-        word1: '@genWord()',
-        sentence20: '@genText()',
-        sentence30: '@genText(30)',
-        sentence10: '@genText(10)',
-        sentence1000: '@genText(1000)',
-        genBeautyText: '@genBeautyText()',
-        constellation: '@genConstellation()',
-        bool: '@genBool()',
-        genEnum1: '@genEnum([\'5\',6,7])',
-        genEnum2: '@genEnum([\'5x\',\'6x\',\'7x\'])',
-        genEnum3: '@genEnum([[],null,\'\'])',
-        img: '@genEnum([\'https://\',\'http://\'])resource.xxx.com/@genData(\'0123456789\',11)/company/moments/@genData(\'abcdefghijklmnopqrstuvwxyz0123456789\',32).jpeg',
-        bingImg: 'https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture',
-        skuCode: /NO-\d{4}-\d{4}-\d{2}/,
-        arrList: '@genList(10)',
-        arrList2: '@genList(10,2)',
-        svg: '@genImg()',
-        svg1: '@genImg({isText:"n"})',
-        svg2: '@genImg({size:"100"})',
-        'list|5-10': [
-          /\d{8,8}/
-        ]
-      }]
+      'list|1-2': [
+        {
+          // 属性 id 是一个自增数，起始值为 1，每次增 1
+          'id|+1': 100,
+          name: '@genName()',
+          str: "@genData('abcdefghijklmnopqrstuvwxyz',10)",
+          datetime: "@genDatetime('2016-1-1', '2020-1-1')",
+          chineseCard: '@genCard()',
+          url: '@genUrl(5)',
+          phoneNum: '@genPhone()',
+          color: '@genColor()',
+          colorRGBA: "@genColor('rgba')",
+          ip: '@genIp()',
+          word10: '@genWord(10)',
+          word1: '@genWord()',
+          sentence20: '@genText()',
+          sentence30: '@genText(30)',
+          sentence10: '@genText(10)',
+          sentence1000: '@genText(1000)',
+          genBeautyText: '@genBeautyText()',
+          constellation: '@genConstellation()',
+          bool: '@genBool()',
+          genEnum1: "@genEnum(['5',6,7])",
+          genEnum2: "@genEnum(['5x','6x','7x'])",
+          genEnum3: "@genEnum([[],null,''])",
+          img:
+            "@genEnum(['https://','http://'])resource.xxx.com/@genData('0123456789',11)/company/moments/@genData('abcdefghijklmnopqrstuvwxyz0123456789',32).jpeg",
+          bingImg:
+            'https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture',
+          skuCode: /NO-\d{4}-\d{4}-\d{2}/,
+          arrList: '@genList(10)',
+          arrList2: '@genList(10,2)',
+          svg: '@genImg()',
+          svg1: '@genImg({isText:"n"})',
+          svg2: '@genImg({size:"100"})',
+          'list|5-10': [/\d{8,8}/]
+        }
+      ]
     },
     err_code: {
       200: {
         temp: {
-          data: { },
+          data: {},
           code: 0,
           msg: 'ok',
           t: 1559204889719
@@ -132,6 +134,47 @@ module.exports = {
     method: 'get',
     controller: 'mock/easy.getBing',
     param: {},
+    test: {},
+    token: false,
+    needSign: false,
+    front: true
+  },
+  echo: {
+    name: 'echo',
+    desc: 'echo',
+    method: 'post',
+    controller: 'mock/easy.echo',
+    param: {
+      str: {
+        name: 'str',
+        desc: 'echo的字符串',
+        type: 'string'
+      }
+    },
+    test: {},
+    token: false,
+    needSign: false,
+    front: true
+  },
+  upload: {
+    name: 'upload',
+    desc: 'upload',
+    method: 'post',
+    controller: 'mock/upload.demo',
+    param: {
+      jsonstr: {
+        name: 'str',
+        desc: 'upload.demo',
+        req: 1,
+        type: 'string'
+      },
+      file: {
+        name: 'file',
+        desc: '上传的file组件id',
+        req: 1,
+        type: 'file'
+      }
+    },
     test: {},
     token: false,
     needSign: false,
