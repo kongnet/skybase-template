@@ -136,7 +136,13 @@ function genConfig (obj) {
         'mysqlTreemap探针'
       ]
     },
-    tests: {},
+    tests: {
+      'http_test.js': [
+        path.join(dir, 'tests', 'http_test.js'),
+        null,
+        'http性能测试'
+      ]
+    },
     tool: {
       'mocha_api_test.js': [
         path.join(dir, 'tool', 'mocha_api_test.js'),
