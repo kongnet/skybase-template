@@ -172,7 +172,9 @@ module.exports = {
         name: 'file',
         desc: '上传的file组件id',
         req: 1,
-        type: 'file'
+        type: 'file',
+        size: [0, 1024 * 1024 * 0.2],
+        fileType: ['image/png', 'image/jpeg']
       }
     },
     test: {},
