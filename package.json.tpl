@@ -24,7 +24,8 @@
     "meeko": "*",
     "standard": "^12.0.1",
     "request": "^2.88.0",
-    "request-promise-native": "^1.0.7"
+    "request-promise-native": "^1.0.7",
+    "svg-captcha": "^1.4.0"
   },
   "devDependencies": {
     "mocha": "^6.2.0"

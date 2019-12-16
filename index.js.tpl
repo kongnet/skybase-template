@@ -44,5 +44,7 @@ sky.start(config, async () => {
   console.log('http://127.0.0.1:13000/skyapi/mock/getBing','获取bing最新的背景图')
 
   console.log('http://127.0.0.1:13000/upload_demo.html','上传例子 控制器查看router/mock/upload.js')
+  console.log('http://127.0.0.1:13000/skyapi/mock/captcha','验证码显示')
+
 
 })

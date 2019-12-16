@@ -70,6 +70,17 @@ module.exports = {
     needSign: false,
     front: true
   },
+  captcha: {
+    name: '验证码返回',
+    desc: '验证码返回',
+    method: 'get',
+    controller: 'mock/img.captcha',
+    param: {},
+    test: {},
+    token: false,
+    needSign: false,
+    front: true
+  },
   img: {
     name: '模拟函数widthxheight图片',
     desc: '模拟函数图片',
@@ -149,32 +160,6 @@ module.exports = {
         name: 'str',
         desc: 'echo的字符串',
         type: 'string'
-      }
-    },
-    test: {},
-    token: false,
-    needSign: false,
-    front: true
-  },
-  upload: {
-    name: 'upload',
-    desc: 'upload',
-    method: 'post',
-    controller: 'mock/upload.demo',
-    param: {
-      jsonstr: {
-        name: 'str',
-        desc: 'upload.demo',
-        req: 1,
-        type: 'string'
-      },
-      file: {
-        name: 'file',
-        desc: '上传的file组件id',
-        req: 1,
-        type: 'file',
-        size: [0, 1024 * 1024 * 0.2],
-        fileType: ['image/png', 'image/jpeg']
       }
     },
     test: {},
