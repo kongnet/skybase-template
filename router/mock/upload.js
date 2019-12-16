@@ -23,8 +23,8 @@ function resizeImg (file, w, h) {
 }
 let uploadRule = {
   demo: {
-    allowType: ['image/png', 'image/jpg', 'image/jpeg'], // 允许的后缀 必须是mime值
-    size: 1024 * 1024 * 5, // 5M 注意总的上传字节限制在index和nginx
+    allowType: ['image/png', 'image/jpg', 'image/jpeg'], // 允许的后缀 必须是mime值，这边可以和api配置同步
+    size: 1024 * 1024 * 5, // 5M 注意总的上传字节限制在index和nginx，这边可以和api配置同步
     path: 'demo',
     nameRule: function () {
       // 文件名的生成算法
