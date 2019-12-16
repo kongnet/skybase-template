@@ -1,3 +1,12 @@
+## [0.1.21](https://github.com/kongnet/skybase-template/compare/v0.1.20...v0.1.21) (2019-12-16)
+
+
+### :sparkles:
+
+* 增加验证码用例页面 ([ad18525](https://github.com/kongnet/skybase-template/commit/ad1852598b2db867ecc8f5ad91c473b78b76ec9d))
+
+
+
 ## [0.1.20](https://github.com/kongnet/skybase-template/compare/v0.1.18...v0.1.20) (2019-12-16)
 
 

@@ -166,5 +166,31 @@ module.exports = {
     token: false,
     needSign: false,
     front: true
+  },
+  upload: {
+    name: '上传',
+    desc: '上传图片',
+    method: 'post',
+    controller: 'mock/upload.demo',
+    param: {
+      jsonstr: {
+        name: 'jsonstr',
+        desc: 'file同时提交的jsonstr',
+        type: 'string',
+        req: 1
+      },
+      file: {
+        name: 'file',
+        desc: '上传的file对象',
+        type: 'file',
+        size: [0, 1024 * 1024 * 0.5],
+        fileType: ['image/png', 'image/jpg', 'image/jpeg'],
+        req: 1
+      }
+    },
+    test: {},
+    token: false,
+    needSign: false,
+    front: true
   }
 }
