@@ -167,6 +167,23 @@ module.exports = {
     needSign: false,
     front: true
   },
+  qrcode: {
+    name: 'qrcode',
+    desc: '二维码生成',
+    method: 'post',
+    controller: 'mock/easy.qrcode',
+    param: {
+      str: {
+        name: 'str',
+        desc: 'qrcode的字符串',
+        type: 'string'
+      }
+    },
+    test: {},
+    token: false,
+    needSign: false,
+    front: true
+  },
   upload: {
     name: '上传',
     desc: '上传图片',

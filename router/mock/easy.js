@@ -44,5 +44,11 @@ module.exports = {
   async echo (ctx) {
     const { str } = ctx.checkedData.data
     ctx.body = str
+  },
+  async qrcode (ctx) {
+    const { str } = ctx.checkedData.data
+    ctx.body = $.qrcode.generateHTML(
+      str || 'https://github.com/kongnet/skybase/blob/master/BestPractice.md'
+    )
   }
 }
