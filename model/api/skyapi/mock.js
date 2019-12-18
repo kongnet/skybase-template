@@ -170,7 +170,7 @@ module.exports = {
   qrcode: {
     name: 'qrcode',
     desc: '二维码生成',
-    method: 'post',
+    method: 'get',
     controller: 'mock/easy.qrcode',
     param: {
       str: {
