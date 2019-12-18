@@ -45,6 +45,7 @@ sky.start(config, async () => {
 
   console.log('http://127.0.0.1:13000/upload_demo.html','上传例子 控制器查看router/mock/upload.js')
   console.log('http://127.0.0.1:13000/skyapi/mock/captcha','验证码显示')
+  console.log('http://127.0.0.1:13000/skyapi/mock/qrcode','验证码显示 ?str=你要显示的字符')
 
 
 })
