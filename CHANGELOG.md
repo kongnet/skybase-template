@@ -1,3 +1,12 @@
+## [0.1.23](https://github.com/kongnet/skybase-template/compare/v0.1.22...v0.1.23) (2019-12-18)
+
+
+### :sparkles:
+
+* 增加二维码功能 ([11c4aaa](https://github.com/kongnet/skybase-template/commit/11c4aaa4df7d3fc4e85e59bc26a45dbe2a3b7944))
+
+
+
 ## [0.1.22](https://github.com/kongnet/skybase-template/compare/v0.1.21...v0.1.22) (2019-12-16)
 
 
