@@ -1,3 +1,12 @@
+## [0.1.26](https://github.com/kongnet/skybase-template/compare/v0.1.25...v0.1.26) (2019-12-23)
+
+
+### :sparkles:
+
+* 获取页面改成axios模式 ([8d395c9](https://github.com/kongnet/skybase-template/commit/8d395c99d98cbbc1d521b23db3e71b5c184f2346))
+
+
+
 ## [0.1.25](https://github.com/kongnet/skybase-template/compare/v0.1.24...v0.1.25) (2019-12-18)
 
 
