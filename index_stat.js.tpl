@@ -4,7 +4,7 @@ const Pack = require('./package.json')
 const skyConfig = require('./skyconfig')
 const $ = require('meeko')
 const SkyDB = require('j2sql2')
-
+const path = require('path')
 config.beforeMount = async () => {
   // const skyDB = new SkyDB({ mssql: config.mssql}) //可支持sqlserver
   const skyDB = new SkyDB({ mysql: config.mysql, redis: config.redis })
