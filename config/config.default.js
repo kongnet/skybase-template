@@ -55,7 +55,27 @@ module.exports = {
   kafka: {
     host: '10.0.2.31:9092,172.16.64.35:9092',
     topic: 'appRequest'
-  }
+  },
+
+  middleware: {
+    limit: {
+      // 接口锁是否使用redis锁
+      // useRedisLock: true
+    }
+  },
+
+  middlewares: [ // 自己实现的middle 不能以 sky- 开头
+    'sky-cors',
+    'sky-body-parse',
+    'sky-static-server',
+    'sky-check-param',
+    'limit',
+    // 'sky-check-token',
+    // 'sample-middleware', //自定义例子打开
+    'sky-output',
+    'sky-api-register'
+  ]
+
   /* 这段打开后，属性会冲掉原来skybase配置，否则使用默认skybase
   ,
   name: packageJson.name,
@@ -67,16 +87,6 @@ module.exports = {
   logger: true,
   middlewareDir: './middleware',
   staticDir: './www',
-  middlewares: [ // 自己实现的middle 不能以 sky- 开头
-    'sky-cors',
-    'sky-body-parse',
-    'sky-static-server',
-    'sky-check-param',
-    'sky-check-token',
-    //'sample-middleware', //自定义例子打开
-    'sky-output',
-    'sky-api-register'
-  ],
   bodyParse: {
     multipart: !0,
     formLimit: '100mb', // 100M 文件上传限制
