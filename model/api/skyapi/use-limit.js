@@ -23,7 +23,7 @@ module.exports = {
   },
   'feqLimit': {
     name: '使用接口频率控制',
-    desc: '',
+    desc: '特点： 设置每隔多久允许执行下一次，与上一个例子的区别仅是接口执行完后是否自动解锁',
     method: 'get',
     controller: 'use-limit.feqLimit',
     limit: {
