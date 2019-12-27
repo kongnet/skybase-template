@@ -34,6 +34,11 @@ function genConfig (obj) {
         obj,
         '中间件例子'
       ],
+      'limit.js': [
+        path.join(dir, 'middleware/limit.js'),
+        obj,
+        '限制接口访问频次的中间件'
+      ],
       'README.md': [
         path.join(dir, 'middleware', 'README.md'),
         obj,
@@ -57,6 +62,11 @@ function genConfig (obj) {
             path.join(dir, 'model', 'api', 'skyapi', 'sky-stat.js'),
             obj,
             '接口统计定义'
+          ],
+          'use-limit.js': [
+            path.join(dir, 'model/api/skyapi/use-limit.js'),
+            obj,
+            'limit中间件使用方式'
           ]
         }
       },
@@ -103,7 +113,12 @@ function genConfig (obj) {
           obj,
           '上传例子'
         ]
-      }
+      },
+      'use-limit.js': [
+        path.join(dir, 'router/use-limit.js'),
+        obj,
+        'limit中间件使用方式Controller'
+      ]
     },
     service: {
       'mysqlProbe.js': [
@@ -141,7 +156,14 @@ function genConfig (obj) {
         path.join(dir, 'tests', 'http_test.js'),
         null,
         'http性能测试'
-      ]
+      ],
+      'router': {
+        'use-limit.test.js': [
+          path.join(dir, 'tests/use-limit.test.js'),
+          null,
+          '限制接口访问频次的中间件测试'
+        ]
+      }
     },
     tool: {
       'mocha_api_test.js': [
