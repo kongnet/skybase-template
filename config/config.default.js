@@ -60,7 +60,9 @@ module.exports = {
   middleware: {
     limit: {
       // 接口锁是否使用redis锁
-      // useRedisLock: true
+      // useRedisLock: true,
+      code: 666, // 可以指定同一时间多次调用时返回的内容
+      msg: '前面有人在执行哦~~'
     }
   },
 
@@ -69,10 +71,10 @@ module.exports = {
     'sky-body-parse',
     'sky-static-server',
     'sky-check-param',
-    'limit',
     // 'sky-check-token',
     // 'sample-middleware', //自定义例子打开
     'sky-output',
+    'limit',
     'sky-api-register'
   ]
 

@@ -11,29 +11,16 @@ const apiLimit = {}
 const locks = {}
 const api = $G.api || {}
 
-function feqLimit (limit, apiPath, start) {
-  if (limit.feqLimit) {
-    if (!limit.feqLimit.timePerSecond) {
-      limit.feqLimit.timePerSecond = 1
-    }
-    const it = apiLimit[apiPath]
-    it.n++
-    const diff = start - it.t
-    if (1 / limit.feqLimit.timePerSecond * 1000 > diff) {
-      return [limit.feqLimit.code || 402, limit.feqLimit.msg || '访问过快请稍后再试！', diff]
-    }
-    it.t = start
-  }
-  return [200]
-}
-
 async function lock (limit, apiPath) {
-  if (limit.singleLock) {
+  if (limit) {
+    if (limitConfig.useRedisLock && !global.redis) {
+      return [502, 'redis未配置']
+    }
     const lockKey = limitConfig.useRedisLock
-      ? (await redisLock(apiPath, limit.singleLock.expire))
-      : memoryLock(apiPath, limit.singleLock.expire)
+      ? (await redisLock(apiPath, limit.expire))
+      : memoryLock(apiPath, limit.expire)
     if (!lockKey) {
-      return [limit.singleLock.code || 402, limit.singleLock.msg || '访问过快请稍后再试！']
+      return [limit.code || limitConfig.code || 402, limit.msg || limitConfig.msg || '访问过快请稍后再试！']
     }
     return [200, '', {
       lockKey
@@ -129,18 +116,8 @@ module.exports = async (ctx, next) => {
   const { limit = {} } = api[apiPath] || {}
 
   apiLimit[apiPath] = apiLimit[apiPath] || {
-    n: 1,
-    t: 0,
-
-    // 解锁要用key的原因： 当第一次执行超时自动解锁后，第二次的锁锁上了，而第一次执行完成了会执行解锁操作，此时若不判断key，就会解了第二次的锁
     lockKey: null,
     lockExpire: 0
-  }
-
-  // 接口频率控制
-  const feqLimitRes = feqLimit(limit, apiPath, start)
-  if (feqLimitRes[0] !== 200) {
-    return ctx.throwCode(feqLimitRes)
   }
 
   const lockRes = await lock(limit, apiPath, start)
@@ -155,5 +132,7 @@ module.exports = async (ctx, next) => {
   }
 
   // 解锁
-  await unlock(apiPath, lockKey)
+  if (limit.unlockWhileComplete !== false) {
+    await unlock(apiPath, lockKey)
+  }
 }

@@ -4,7 +4,27 @@ const request = require('request-promise-native')
 const wait = (msec) => new Promise(resolve => setTimeout(resolve, msec))
 
 describe('接口频度限制', () => {
-  describe('每秒次数限制', () => {})
+  describe('每秒次数限制', () => {
+    it('每秒只允许两次请求成功', async () => {
+      const fn = async (i) => {
+        const res = await request({
+          uri: 'http://127.0.0.1:13000/skyapi/use-limit/feqLimit',
+          method: 'get',
+          json: true
+        })
+        return res.code === 200
+      }
+
+      const firsts = []
+
+      firsts.push(await fn())
+      await wait(500)
+      firsts.push(await fn())
+      firsts.push(await fn())
+
+      assert.strictEqual(firsts.filter(d => d).length, 2)
+    })
+  })
   describe('接口锁限制', () => {
     it('是否只有一次能请求进去', async () => {
       const lockFn = async (i) => {
@@ -33,7 +53,7 @@ describe('接口频度限制', () => {
 
       assert.strictEqual(succNum, 1)
     })
-    it('是否能解锁', async () => {
+    it('是否能自动解锁', async () => {
       for (let i = 0; i < 3; i++){
         const res = await request({
           uri: 'http://127.0.0.1:13000/skyapi/use-limit/lock',
