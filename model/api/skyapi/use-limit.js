@@ -12,7 +12,7 @@ module.exports = {
     limit: {
       unlockUntilComplete: true, // 是否在接口执行完成后解锁，默认true
       code: 666, // 可以指定同一时间多次调用时返回的内容
-      msg: '前面有人在执行哦',
+      msg: '您的请求正在排队...',
       expire: 6000 // 自动解锁时间，默认5000毫秒
     },
     param: {},
@@ -30,6 +30,7 @@ module.exports = {
     controller: 'use-limit.feqLimit',
     limit: {
       unlockUntilComplete: false, // 是否在接口执行完成后解锁
+      msg: '您的请求过快，请稍后再试...',
       expire: 500 // 自动解锁时间，默认5000毫秒
     },
     param: {},
