@@ -14,7 +14,10 @@ module.exports = {
     charset: 'utf8mb4',
     multipleStatements: true,
     connectionLimit: 1000,
-    showSql: true // 使用BaseModel的才有效，打印sql
+    showSql: true, // 使用BaseModel的才有效，打印sql
+    crudExtend: {
+      //打开 db['tablename'].ex扩展方法
+    }
   },
   mysqlSkybaseTest: {
     host: '127.0.0.1',
@@ -66,7 +69,8 @@ module.exports = {
     }
   },
 
-  middlewares: [ // 自己实现的middle 不能以 sky- 开头
+  middlewares: [
+    // 自己实现的middle 不能以 sky- 开头
     'sky-cors',
     'sky-body-parse',
     'sky-static-server',
