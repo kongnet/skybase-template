@@ -47,5 +47,10 @@ sky.start(config, async () => {
   console.log('http://127.0.0.1:13000/skyapi/mock/captcha','验证码显示')
   console.log('http://127.0.0.1:13000/skyapi/mock/qrcode','验证码显示 ?str=你要显示的字符')
 
+  console.log('http://127.0.0.1:13000/skyapi/use-limit/lock','运行接口时加锁，运行完解锁，超时也会解锁')
+  console.log('http://127.0.0.1:13000/skyapi/use-limit/feqLimit','根据接口访问频率控制')
+  
+
+
 
 })
