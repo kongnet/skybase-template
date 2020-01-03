@@ -9,6 +9,7 @@ module.exports = {
     method: 'get',
     controller: 'use-limit.lock',
     limit: {
+      until: '',
       unlockWhileComplete: true, // 是否在接口执行完成后解锁，默认true
       code: 666, // 可以指定同一时间多次调用时返回的内容
       msg: '前面有人在执行哦',
