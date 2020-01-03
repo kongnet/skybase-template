@@ -16,7 +16,7 @@ module.exports = {
     connectionLimit: 1000,
     showSql: true, // 使用BaseModel的才有效，打印sql
     crudExtend: {
-      //打开 db['tablename'].ex扩展方法
+      // 打开 db['tablename'].ex扩展方法
     }
   },
   mysqlSkybaseTest: {
@@ -67,6 +67,11 @@ module.exports = {
       code: 666, // 可以指定同一时间多次调用时返回的内容
       msg: '前面有人在执行哦~~'
     }
+  },
+
+  // 重定向配置，逻辑放在中间件 sky-check-param 内，所以必须要使用该中间件，此功能才生效
+  redirect: {
+    '/redirect/original': '/redirect/to'
   },
 
   middlewares: [
