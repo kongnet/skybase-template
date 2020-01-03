@@ -1,3 +1,32 @@
+## [0.1.32](https://github.com/kongnet/skybase-template/compare/v0.1.31...v0.1.32) (2020-01-02)
+
+
+
+
+## [0.1.31](https://github.com/kongnet/skybase-template/compare/v0.1.30...v0.1.31) (2020-01-02)
+
+
+
+
+## [0.1.30](https://github.com/kongnet/skybase-template/compare/v0.1.29...v0.1.30) (2019-12-27)
+
+
+
+
+## [0.1.29](https://github.com/kongnet/skybase-template/compare/v0.1.28...v0.1.29) (2019-12-27)
+
+
+### :sparkles:
+
+* 动态加载lua统计算法 ([4bb607b](https://github.com/kongnet/skybase-template/commit/4bb607be277570bca908a32e299df3753fad22df))
+
+
+
+## [0.1.28](https://github.com/kongnet/skybase-template/compare/v0.1.27...v0.1.28) (2019-12-26)
+
+
+
+
 ## [0.1.27](https://github.com/kongnet/skybase-template/compare/v0.1.26...v0.1.27) (2019-12-26)
 
 

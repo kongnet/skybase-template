@@ -6,7 +6,7 @@
  * */
 const { limit: limitConfig = {} } = require('../config').middleware || {}
 const pack = require('../package.json')
-const $G = global.$G = global.$G || {}
+const $G = (global.$G = global.$G || {})
 const apiLimit = {}
 const locks = {}
 const api = $G.api || {}
@@ -17,27 +17,37 @@ async function lock (limit, apiPath) {
       return [502, 'redis未配置']
     }
     const lockKey = limitConfig.useRedisLock
-      ? (await redisLock(apiPath, limit.expire))
+      ? await redisLock(apiPath, limit.expire)
       : memoryLock(apiPath, limit.expire)
     if (!lockKey) {
-      return [limit.code || limitConfig.code || 402, limit.msg || limitConfig.msg || '访问过快请稍后再试！']
+      return [
+        limit.code || limitConfig.code || 402,
+        limit.msg || limitConfig.msg || '访问过快请稍后再试！'
+      ]
     }
-    return [200, '', {
-      lockKey
-    }]
+    return [
+      200,
+      '',
+      {
+        lockKey
+      }
+    ]
   }
   return [200, '', {}]
 }
 
 function unlock (apiPath, lockKey) {
-  return limitConfig.useRedisLock ? redisUnLock(apiPath, lockKey) : memoryUnlock(apiPath, lockKey)
+  return limitConfig.useRedisLock
+    ? redisUnLock(apiPath, lockKey)
+    : memoryUnlock(apiPath, lockKey)
 }
 
 // 内存锁
 function memoryLock (apiPath, expire) {
   const now = Date.now()
   const it = apiLimit[apiPath]
-  if (it.lockKey && !(it.lockExpire && it.lockExpire <= now)) { // 当锁存在，且未过期时，不能再加锁
+  if (it.lockKey && !(it.lockExpire && it.lockExpire <= now)) {
+    // 当锁存在，且未过期时，不能再加锁
     return false
   }
 
@@ -75,7 +85,8 @@ async function redisLock (lockName, msec) {
   if (!msec || msec < 0) msec = 5000
   const kn = getKeyName(lockName)
   const now = Date.now()
-  if (locks[kn]) { // 把内存也当作一道锁。这个可以不要，要的话能快一点，虽然过了单元测试，但是不知道会不会引发别的问题
+  if (locks[kn]) {
+    // 把内存也当作一道锁。这个可以不要，要的话能快一点，虽然过了单元测试，但是不知道会不会引发别的问题
     if (locks[kn] >= Date.now()) {
       return false
     } else {
@@ -83,7 +94,7 @@ async function redisLock (lockName, msec) {
     }
   }
   const key = Date.now() + Math.random().toString()
-  const res = await global.redis.set(kn, key, 'NX', 'PX', msec) === 'OK'
+  const res = (await global.redis.set(kn, key, 'NX', 'PX', msec)) === 'OK'
   if (res) {
     locks[kn] = now + msec
     return key
@@ -132,7 +143,7 @@ module.exports = async (ctx, next) => {
   }
 
   // 解锁
-  if (limit.unlockWhileComplete !== false) {
+  if (limit.unlockUntilComplete !== false) {
     await unlock(apiPath, lockKey)
   }
 }

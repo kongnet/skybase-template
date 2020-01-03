@@ -14,7 +14,10 @@ module.exports = {
     charset: 'utf8mb4',
     multipleStatements: true,
     connectionLimit: 1000,
-    showSql: true // 使用BaseModel的才有效，打印sql
+    showSql: true, // 使用BaseModel的才有效，打印sql
+    crudExtend: {
+      //打开 db['tablename'].ex扩展方法
+    }
   },
   mysqlSkybaseTest: {
     host: '127.0.0.1',
@@ -66,12 +69,8 @@ module.exports = {
     }
   },
 
-  // 重定向配置，逻辑放在中间件 sky-check-param 内，所以必须要使用该中间件，此功能才生效
-  redirect: {
-    '/redirect/original': '/redirect/to'
-  },
-
-  middlewares: [ // 自己实现的middle 不能以 sky- 开头
+  middlewares: [
+    // 自己实现的middle 不能以 sky- 开头
     'sky-cors',
     'sky-body-parse',
     'sky-static-server',

@@ -157,7 +157,7 @@ function genConfig (obj) {
         null,
         'http性能测试'
       ],
-      'router': {
+      router: {
         'use-limit.test.js': [
           path.join(dir, 'tests/use-limit.test.js'),
           null,
@@ -204,6 +204,7 @@ function genConfig (obj) {
       obj,
       '统计主启动文件'
     ],
+    '会员统计.lua': [path.join(dir, '会员统计.lua'), obj, '会员统计算法'],
     'skyconfig.js': [
       path.join(dir, 'skyconfig.js'),
       obj,

@@ -4,7 +4,7 @@ const Pack = require('./package.json')
 const skyConfig = require('./skyconfig')
 const $ = require('meeko')
 const SkyDB = require('j2sql2')
-
+const path = require('path')
 config.beforeMount = async () => {
   // const skyDB = new SkyDB({ mssql: config.mssql}) //可支持sqlserver
   const skyDB = new SkyDB({ mysql: config.mysql, redis: config.redis })
@@ -12,7 +12,7 @@ config.beforeMount = async () => {
   const rd = await skyDB.redis // 创建redis 实例
   global.db = db
   global.redis = rd
-  global.rts = require('skyrts')({
+  global.rts = await require('skyrts')({
     redis: redis,
     redisAsync: redis,
     gran: '5m, 1h, 1d, 1w, 1M, 1y',
@@ -44,4 +44,6 @@ sky.start(config, async () => {
   console.log('http://127.0.0.1:13000/skyapi/probe/mysql', '查看探针例子')
   console.log('http://127.0.0.1:13000/skyapi/sky-stat/getOne?api=_skyapi_sky-stat_getAll&type=chart', '某接口5m 1h 1d图形统计')
   // console.log(global.$G)
+  let r = await rts.loadOneScript('会员', path.join(__dirname, '会员统计.lua'))  // 加载一个rts的统计算法实例
+  console.log(rts.scriptSha1s)
 })
