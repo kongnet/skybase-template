@@ -49,7 +49,9 @@ sky.start(config, async () => {
 
   console.log('http://127.0.0.1:13000/skyapi/use-limit/lock','运行接口时加锁，运行完解锁，超时也会解锁')
   console.log('http://127.0.0.1:13000/skyapi/use-limit/feqLimit','根据接口访问频率控制')
-  
+
+  console.log('http://127.0.0.1:13000/skyapi/redirect/original','url重定向')
+
 
 
 

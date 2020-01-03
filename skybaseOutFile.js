@@ -67,6 +67,11 @@ function genConfig (obj) {
             path.join(dir, 'model/api/skyapi/use-limit.js'),
             obj,
             'limit中间件使用方式'
+          ],
+          'redirect.js': [
+            path.join(dir, 'model/api/skyapi/redirect.js'),
+            obj,
+            'url重定向使用方式'
           ]
         }
       },
@@ -118,6 +123,11 @@ function genConfig (obj) {
         path.join(dir, 'router/use-limit.js'),
         obj,
         'limit中间件使用方式Controller'
+      ],
+      'redirect.js': [
+        path.join(dir, 'router/redirect.js'),
+        obj,
+        'url重定向使用方式'
       ]
     },
     service: {
