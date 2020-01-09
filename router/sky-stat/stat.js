@@ -1,4 +1,3 @@
-
 const skyapiService = require('../../service/sky-stat/stat.js')
 const htmlOutModel = require('../../model/sky-stat/htmlOut.js')
 
@@ -13,7 +12,17 @@ module.exports = {
     if (ctx.checkedData.data && ctx.checkedData.data.type === 'mix') {
       ctx.type = 'text/html'
       let tdTitle = ['序号', '接口名称', 'max', 'min', 'avg', 'count']
-      ctx.body = htmlOutModel.outHtml('获取所有统计 (1h)', [{ title: '获取所有统计 (1h)', dataTitleArr: tdTitle, dataArr: processData(r.data) }])
+      let objHtml = {}
+      for (let i in r.data) {
+        objHtml[`<a href='getOne?api=${i}&type=mix'>${i}</a>`] = r.data[i]
+      }
+      ctx.body = htmlOutModel.outHtml('获取所有统计 (1h)', [
+        {
+          title: '获取所有统计 (1h)',
+          dataTitleArr: tdTitle,
+          dataArr: processData(objHtml)
+        }
+      ])
     } else {
       ctx.throwCode(200, '成功', r.data)
     }
@@ -28,7 +37,13 @@ module.exports = {
     if (ctx.checkedData.data && ctx.checkedData.data.type === 'mix') {
       ctx.type = 'text/html'
       let tdTitle = ['序号', '接口名称', 'max', 'min', 'avg', 'count']
-      ctx.body = htmlOutModel.outHtml('获取部分接口统计 (1h)', [{ title: '获取部分接口统计 (1h)', dataTitleArr: tdTitle, dataArr: processData(r.data) }])
+      ctx.body = htmlOutModel.outHtml('获取部分接口统计 (1h)', [
+        {
+          title: '获取部分接口统计 (1h)',
+          dataTitleArr: tdTitle,
+          dataArr: processData(r.data)
+        }
+      ])
     } else {
       ctx.throwCode(200, '成功', r.data)
     }
@@ -40,13 +55,22 @@ module.exports = {
       return
     }
 
-    if (ctx.checkedData.data && (ctx.checkedData.data.type === 'mix' || ctx.checkedData.data.type === 'chart')) {
+    if (
+      ctx.checkedData.data &&
+      (ctx.checkedData.data.type === 'mix' ||
+        ctx.checkedData.data.type === 'chart')
+    ) {
       ctx.type = 'text/html'
       let data = []
       data.push(processGetOneData(ctx.checkedData.data.api, '5m', r.data))
       data.push(processGetOneData(ctx.checkedData.data.api, '1h', r.data))
       data.push(processGetOneData(ctx.checkedData.data.api, '1d', r.data))
-      ctx.body = htmlOutModel.outHtml(ctx.checkedData.data.api + ' 单个统计', data, true, ctx.checkedData.data.type === 'chart')
+      ctx.body = htmlOutModel.outHtml(
+        ctx.checkedData.data.api + ' 单个统计',
+        data,
+        true,
+        ctx.checkedData.data.type === 'chart'
+      )
     } else {
       ctx.throwCode(200, '成功', r.data)
     }
@@ -62,7 +86,11 @@ module.exports = {
 }
 
 function processGetOneData (apiName, format, srcData) {
-  if (!srcData[format] || !srcData[format].count || !srcData[format].count.data) {
+  if (
+    !srcData[format] ||
+    !srcData[format].count ||
+    !srcData[format].count.data
+  ) {
     return { dataTitleArr: [], dataArr: [], title: '' }
   }
   let title = `${apiName} ${format} 统计数据`
@@ -70,7 +98,11 @@ function processGetOneData (apiName, format, srcData) {
   let dataArr = []
   let chartData = []
   for (let i = 0; i < 4; i++) {
-    chartData.push({ id: `${format}_${Date.now()}_${i + 1}`, label: [], data: [] })
+    chartData.push({
+      id: `${format}_${Date.now()}_${i + 1}`,
+      label: [],
+      data: []
+    })
   }
 
   for (let i = 0; i < srcData[format].count.data.length; i++) {
@@ -82,9 +114,17 @@ function processGetOneData (apiName, format, srcData) {
     if (format === '1d') {
       date = new Date(count[0]).date2Str().split(' ')[0]
     }
-    dataArr.push([i + 1, date, max[1] + ' ms', min[1] + ' ms', avg[1] + ' ms', count[1]])
+    dataArr.push([
+      i + 1,
+      date,
+      max[1] + ' ms',
+      min[1] + ' ms',
+      avg[1] + ' ms',
+      count[1]
+    ])
 
-    for (let i = 0; i < 4; i++) { // add time label
+    for (let i = 0; i < 4; i++) {
+      // add time label
       chartData[i].label.push(date)
     }
     chartData[0].data.push(max[1])
@@ -106,7 +146,7 @@ function processData (srcData) {
   let n = 1
   for (let k in srcData) {
     const item = srcData[k]
-    data.push([ n++, k, item.max, item.min, item.avg, item.count ])
+    data.push([n++, k, item.max, item.min, item.avg, item.count])
   }
   return data
 }
