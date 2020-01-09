@@ -1,3 +1,12 @@
+## [0.1.35](https://github.com/kongnet/skybase-template/compare/v0.1.34...v0.1.35) (2020-01-09)
+
+
+### :memo:
+
+* 增加pm2控制文件 ([691794f](https://github.com/kongnet/skybase-template/commit/691794fbc3868bee536b658f84bc994c18d04746))
+
+
+
 ## [0.1.34](https://github.com/kongnet/skybase-template/compare/v0.1.33...v0.1.34) (2020-01-09)
 
 

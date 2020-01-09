@@ -200,6 +200,11 @@ function genConfig (obj) {
     ],
     'package.json': [path.join(dir, 'package.json.tpl'), obj, 'package.json'],
     '.gitignore': [path.join(dir, '.gitignore'), obj, 'Git忽略文件列表'],
+    'pm2_v4.config.js': [
+      path.join(dir, 'pm2_v4.config.js'),
+      obj,
+      '项目pm2,4实例启动'
+    ],
     '.editorconfig': [path.join(dir, '.editorconfig'), obj, 'editorconfig'],
     '.eslintignore': [path.join(dir, '.eslintignore'), obj, 'eslintignore'],
     '.istanbul.yml': [path.join(dir, '.istanbul.yml'), obj, 'istanbul'],
