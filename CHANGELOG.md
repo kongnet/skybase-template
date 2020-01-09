@@ -1,3 +1,12 @@
+## [0.1.34](https://github.com/kongnet/skybase-template/compare/v0.1.33...v0.1.34) (2020-01-09)
+
+
+### :sparkles:
+
+* 增加getAll跳转到getOne ([5ef9038](https://github.com/kongnet/skybase-template/commit/5ef90384fbc21fe614409233a1101f6196255b13))
+
+
+
 ## [0.1.33](https://github.com/kongnet/skybase-template/compare/v0.1.32...v0.1.33) (2020-01-02)
 
 
