@@ -14,10 +14,12 @@ module.exports = {
     charset: 'utf8mb4',
     multipleStatements: true,
     connectionLimit: 1000,
-    showSql: true, // 使用BaseModel的才有效，打印sql
+    /*
     crudExtend: {
-      // 打开 db['tablename'].ex扩展方法
-    }
+      // 打开后 db['tablename'].ex扩展方法
+    },
+    */
+    showSql: true // 使用BaseModel的才有效，打印sql
   },
   mysqlSkybaseTest: {
     host: '127.0.0.1',

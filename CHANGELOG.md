@@ -1,3 +1,8 @@
+## [0.1.36](https://github.com/kongnet/skybase-template/compare/v0.1.35...v0.1.36) (2020-01-09)
+
+
+
+
 ## [0.1.35](https://github.com/kongnet/skybase-template/compare/v0.1.34...v0.1.35) (2020-01-09)
 
 
