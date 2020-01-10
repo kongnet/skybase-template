@@ -51,9 +51,9 @@ module.exports = {
   rabbitMQ: {
     protocol: 'amqp',
     host: 'localhost',
-    port: '5672',
-    login: 'admin',
-    password: 'rabbitmq@qq.com',
+    port: 5672,
+    username: 'user',
+    password: 'user',
     vhost: ''
   },
 

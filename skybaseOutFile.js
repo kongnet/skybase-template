@@ -213,11 +213,21 @@ function genConfig (obj) {
       obj,
       'sonar扫描配置'
     ],
+    'rts_consumer.js': [
+      path.join(dir, 'rts_consumer.js'),
+      obj,
+      'api统计消费函数'
+    ],
     'index.js': [path.join(dir, 'index.js.tpl'), obj, '主启动文件'],
     'index_stat.js': [
       path.join(dir, 'index_stat.js.tpl'),
       obj,
       '统计主启动文件'
+    ],
+    'index_mq_stat.js': [
+      path.join(dir, 'index_mq_stat.js'),
+      obj,
+      'MQ统计主启动文件'
     ],
     '会员统计.lua': [path.join(dir, '会员统计.lua'), obj, '会员统计算法'],
     'skyconfig.js': [
