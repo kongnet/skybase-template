@@ -1,3 +1,12 @@
+## [0.1.38](https://github.com/kongnet/skybase-template/compare/v0.1.37...v0.1.38) (2020-01-10)
+
+
+### :sparkles:
+
+* 增加mq统计相关代码 ([f355f7f](https://github.com/kongnet/skybase-template/commit/f355f7f5feaa7b39c9d01e04b5e8e53335d785da))
+
+
+
 ## [0.1.37](https://github.com/kongnet/skybase-template/compare/v0.1.36...v0.1.37) (2020-01-10)
 
 

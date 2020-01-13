@@ -10,6 +10,8 @@ async function init () {
   await loadService()
 
   rtsMQ.rev({
+    noAck: false, //默认false，true会自动 确认消费，会造成来不及消费就ack的情况
+    prefetch: 1, // 默认每次消费一条
     cbFunc: consumerFunc,
     queueName: Pack.name + '_rts' //这是默认的，如果要动态请设置 相应环境的config文件
   })
@@ -26,12 +28,16 @@ async function init () {
 消费者函数
 此例子是skybase的api统计写入mq，从mq拿出，record到RTS
 */
-async function consumerFunc (data) {
-  const mqObj = JSON.parse(data.content.toString())
+let mqObj
+//这边需要 处理data 和 channel=ch两个参数
+async function consumerFunc (data, ch) {
+  mqObj = JSON.parse(data.content.toString())
   if (mqObj.type === 'rts_api') {
     //注意类型需要区分
     global.rts.record(mqObj.key, mqObj.number, mqObj.method, null, mqObj.time)
   }
+  ch.ack(data) // 默认不自动ack ch.ack(data) 确认本次消费才ack
+  mqObj = null
   /*其他type消费，注意这里是同一个channel
   if(mqObj.type === 'xxx'){
 
