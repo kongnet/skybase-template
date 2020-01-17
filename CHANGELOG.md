@@ -1,3 +1,12 @@
+## [0.1.39](https://github.com/kongnet/skybase-template/compare/v0.1.38...v0.1.39) (2020-01-13)
+
+
+### :ambulance:
+
+* 修正消费者问题 ([82037ae](https://github.com/kongnet/skybase-template/commit/82037ae4232cae9c2c81ba77863655207fdf872f))
+
+
+
 ## [0.1.38](https://github.com/kongnet/skybase-template/compare/v0.1.37...v0.1.38) (2020-01-10)
 
 

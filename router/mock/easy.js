@@ -63,7 +63,7 @@ module.exports = {
       true
     )
     ctx.type = 'html'
-    ctx.body = `<img src='https://cn.bing.com${r.images[0].url}'></>`
+    ctx.body = `<img src='https://cn.bing.com${r.data.images[0].url}'></>`
   },
   async echo (ctx) {
     const { str } = ctx.checkedData.data
