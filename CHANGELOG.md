@@ -1,3 +1,12 @@
+## [0.1.40](https://github.com/kongnet/skybase-template/compare/v0.1.39...v0.1.40) (2020-01-17)
+
+
+### :sparkles:
+
+* 增加了判断银行的函数 ([5906a3f](https://github.com/kongnet/skybase-template/commit/5906a3f5fb1d52da750890ddbd2a9bb815274d73))
+
+
+
 ## [0.1.39](https://github.com/kongnet/skybase-template/compare/v0.1.38...v0.1.39) (2020-01-13)
 
 

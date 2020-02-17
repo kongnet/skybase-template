@@ -1,4 +1,3 @@
-
 /* global $ */
 
 module.exports = {
@@ -6,9 +5,9 @@ module.exports = {
 }
 
 function outHtml (htmlTitle, arr, chart = false, onlyChart = false) {
-  let redColor ='#f5222d'
-  let greenColor ='#52c41a'
-  let yellowColor ='#faad14'
+  let redColor = '#f5222d'
+  let greenColor = '#52c41a'
+  let yellowColor = '#faad14'
   let body = ``
   let script = ``
   $.log(arr)
@@ -17,20 +16,30 @@ function outHtml (htmlTitle, arr, chart = false, onlyChart = false) {
     let trTitle = ''
     let tBody = ''
     try {
-      trTitle = dataTitleArr.map((k) => { return `<th title="${k}">${k}</th>` }).join('')
-      tBody = dataArr.map(item => {
-        let td = item.map((v,idx) => {
-          let colorStr=''
-          if (['min','max','avg'].includes(dataTitleArr[idx])){
-            let v1 = +v.replace('ms','')
-            if(v1>0&v1<=60) colorStr=`style="color:${greenColor}"`
-            if(v1>60&v1<=200) colorStr=`style="color:${yellowColor}"`
-            if(v1>200) colorStr=`style="color:${redColor}"`
-
-          }
-          return `<td ${colorStr}>${v}</td>`
-        }).join(''); return `<tr>${td}</tr>`
-      }).join('')
+      trTitle = dataTitleArr
+        .map(k => {
+          return `<th title="${k}">${k}</th>`
+        })
+        .join('')
+      tBody = dataArr
+        .map(item => {
+          let td = item
+            .map((v, idx) => {
+              let colorStr = ''
+              if (['min', 'max', 'avg'].includes(dataTitleArr[idx])) {
+                let v1 = +v.replace('ms', '')
+                if ((v1 > 0) & (v1 <= 60))
+                  colorStr = `style="color:${greenColor}"`
+                if ((v1 > 60) & (v1 <= 200))
+                  colorStr = `style="color:${yellowColor}"`
+                if (v1 > 200) colorStr = `style="color:${redColor}"`
+              }
+              return `<td ${colorStr}>${v}</td>`
+            })
+            .join('')
+          return `<tr>${td}</tr>`
+        })
+        .join('')
     } catch (e) {
       $.err(e.stack)
     }
@@ -66,13 +75,17 @@ function outHtml (htmlTitle, arr, chart = false, onlyChart = false) {
         </details>`
       script += `
 ctx = document.getElementById('${chartData[0].id}').getContext('2d')
-arrData = [${JSON.stringify(chartData[0].data)},${JSON.stringify(chartData[1].data)},${JSON.stringify(chartData[2].data)}]
+arrData = [${JSON.stringify(chartData[0].data)},${JSON.stringify(
+        chartData[1].data
+      )},${JSON.stringify(chartData[2].data)}]
 colorList =['${maxColor}','${minColor}','${avgColor}']
 data = getData(${JSON.stringify(chartData[0].label)}, arrData, 3, colorList)
 new Chart(ctx).Line(data)
 
 ctx = document.getElementById('${chartData[1].id}').getContext('2d')
-data = getData(${JSON.stringify(chartData[0].label)}, ${JSON.stringify(chartData[3].data)})
+data = getData(${JSON.stringify(chartData[0].label)}, ${JSON.stringify(
+        chartData[3].data
+      )})
 new Chart(ctx).Line(data)
         `
     }
@@ -84,7 +97,11 @@ new Chart(ctx).Line(data)
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <head>
-${chart ? `<script src="http://s.nodejs.cn/chart/assets/Chart.min.js"></script>` : ''}
+${
+  chart
+    ? `<script src="https://cdn.bootcss.com/Chart.js/1.0.2/Chart.min.js"></script>`
+    : ''
+}
   <meta charset="utf-8"><title>${htmlTitle}</title>
     <style type="text/css">
         canvas {width: 90%;height: 300px;}
