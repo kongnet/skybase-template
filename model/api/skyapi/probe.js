@@ -3,7 +3,7 @@ module.exports = {
     name: '测试用例接口',
     description: '测试用例接口'
   },
-  'mysql': {
+  mysql: {
     name: 'mysql探针数据',
     desc: 'mysql探针数据',
     method: 'get',
@@ -16,13 +16,13 @@ module.exports = {
         type: 'string'
       }
     },
-    'token': false,
-    'needSign': false,
-    'err_code': {},
-    'test': {},
-    'front': true
+    token: false,
+    needSign: false,
+    err_code: {},
+    test: {},
+    front: true
   },
-  'mysqlTree': {
+  mysqlTree: {
     name: 'mysql探针数据',
     desc: 'mysql探针数据',
     method: 'get',
@@ -35,13 +35,13 @@ module.exports = {
         type: 'string'
       }
     },
-    'token': false,
-    'needSign': false,
-    'err_code': {},
-    'test': {},
-    'front': true
+    token: false,
+    needSign: false,
+    err_code: {},
+    test: {},
+    front: true
   },
-  'mysqlGrid': {
+  mysqlGrid: {
     name: 'mysql探针数据',
     desc: 'mysql探针数据',
     method: 'get',
@@ -54,10 +54,42 @@ module.exports = {
         type: 'string'
       }
     },
-    'token': false,
-    'needSign': false,
-    'err_code': {},
-    'test': {},
-    'front': true
+    token: false,
+    needSign: false,
+    err_code: {},
+    test: {},
+    front: true
+  },
+  getMysqlData: {
+    name: '获取mysql数据',
+    desc: '获取mysql数据',
+    method: 'post',
+    controller: 'mysqlProbe.getMysqlData',
+    param: {
+      instanceName: {
+        name: '默认实例名',
+        desc: '默认全局实例变量名',
+        def: 'db',
+        req: 1,
+        type: 'string'
+      },
+      queryStr: {
+        name: '查询字符串',
+        desc: '查询字符串',
+        req: 1,
+        type: 'string'
+      },
+      accessToken: {
+        name: '指定密码',
+        desc: '指定密码',
+        req: 1,
+        type: 'string'
+      }
+    },
+    token: false,
+    needSign: false,
+    err_code: {},
+    test: {},
+    front: true
   }
 }

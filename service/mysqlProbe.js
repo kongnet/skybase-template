@@ -37,10 +37,34 @@ async function getTableColumnSize () {
   let obj = {}
   r.forEach(item => {
     if (obj[item.dbName]) {
-      arr[obj[item.dbName]].children.push({ name: item.tableComment + '\n' + item.tableName + '\n\n' + ((item.rowCount + '').toMoney(2)), value: item.rowCount || 0 })
-      arrSize[obj[item.dbName]].children.push({ name: item.tableComment + '\n' + item.tableName + '\n\n' + ((item.dataSize + '').toMoney(2)), value: item.dataSize || 0 })
+      arr[obj[item.dbName]].children.push({
+        name:
+          item.tableComment +
+          '\n' +
+          item.tableName +
+          '\n\n' +
+          (item.rowCount + '').toMoney(2),
+        value: item.rowCount || 0
+      })
+      arrSize[obj[item.dbName]].children.push({
+        name:
+          item.tableComment +
+          '\n' +
+          item.tableName +
+          '\n\n' +
+          (item.dataSize + '').toMoney(2),
+        value: item.dataSize || 0
+      })
     } else {
-      if (!['performance_schema', 'mysql', 'information_schema', 'sys', 'happyminer_test'].includes(item.dbName)) {
+      if (
+        ![
+          'performance_schema',
+          'mysql',
+          'information_schema',
+          'sys',
+          'happyminer_test'
+        ].includes(item.dbName)
+      ) {
         arr.push({ name: item.dbName, children: [] })
         arrSize.push({ name: item.dbName, children: [] })
         obj[item.dbName] = arr.length - 1
@@ -60,9 +84,19 @@ async function getDbTable () {
   let obj = {}
   r.forEach(item => {
     if (obj[item.dbName]) {
-      arr[obj[item.dbName]].children.push({ name: item.tableComment + ' ' + item.tableName })
+      arr[obj[item.dbName]].children.push({
+        name: item.tableComment + ' ' + item.tableName
+      })
     } else {
-      if (!['performance_schema', 'mysql', 'information_schema', 'sys', 'happyminer_test'].includes(item.dbName)) {
+      if (
+        ![
+          'performance_schema',
+          'mysql',
+          'information_schema',
+          'sys',
+          'happyminer_test'
+        ].includes(item.dbName)
+      ) {
         arr.push({ name: item.dbName, children: [] })
         obj[item.dbName] = arr.length - 1
       }
@@ -78,7 +112,9 @@ async function getDbTableColumn () {
   let r = await db.cmd(tableSql).run()
   let dbTableCommentMap = {}
   r.map(it => {
-    dbTableCommentMap[[it.db, it.table_name].join('$$')] = it.table_comment.trim().replaceAll('\r\n', '')
+    dbTableCommentMap[
+      [it.db, it.table_name].join('$$')
+    ] = it.table_comment.trim().replaceAll('\r\n', '')
   })
   r = await db.cmd(columnSql).run()
   r = r.map(it => {
@@ -86,10 +122,15 @@ async function getDbTableColumn () {
     let emptyStr = it.column_name.includes('id') ? 'id' : ''
     return {
       dbName: it.db_name,
-      tableName: it.table_name + ' ' + (dbTableCommentMap[it.db_name + '$$' + it.table_name] || '<font style="color:red">【无注解】</font>'),
+      tableName:
+        it.table_name +
+        ' ' +
+        (dbTableCommentMap[it.db_name + '$$' + it.table_name] ||
+          '<font style="color:red">【无注解】</font>'),
       columnName: it.column_name,
       columnKey: it.column_key, // PRI->UNI->MUL
-      columnComment: it.column_comment || emptyStr || '<font style="color:red">【空】</font>'
+      columnComment:
+        it.column_comment || emptyStr || '<font style="color:red">【空】</font>'
     }
   })
   return {
@@ -97,10 +138,14 @@ async function getDbTableColumn () {
     data: r
   }
 }
-
+async function getMysqlData (data) {
+  let r = await global[data.instanceName || 'db'].cmd(data.queryStr).run()
+  return r
+}
 getDbTableColumn()
 module.exports = {
   getTableColumnSize,
   getDbTable,
-  getDbTableColumn
+  getDbTableColumn,
+  getMysqlData
 }

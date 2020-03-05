@@ -185,6 +185,11 @@ function genConfig (obj) {
         path.join(dir, 'tool', 'scanNoParam.js'),
         obj,
         '无参数测试运行js'
+      ],
+      'api2markdown.js': [
+        path.join(dir, 'tool', 'api2markdown.js'),
+        obj,
+        '自动参数api文档'
       ]
     },
     sql: {},

@@ -1,4 +1,5 @@
 module.exports = {
+  port: process.env.node_port,
   mysql: {
     host: '127.0.0.1',
     port: 3306,
@@ -8,6 +9,7 @@ module.exports = {
     pool: 1000,
     timeout: 60000,
     charset: 'utf8mb4',
+    supportBigNumbers: true,
     multipleStatements: true,
     connectionLimit: 1000,
     showSql: true // 使用BaseModel的才有效，打印sql
