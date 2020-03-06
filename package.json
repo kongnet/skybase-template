@@ -1,6 +1,6 @@
 {
   "name": "skybase-template",
-  "version": "0.1.42",
+  "version": "0.1.43",
   "description": "fast skybase project build",
   "main": "index.js",
   "scripts": {
