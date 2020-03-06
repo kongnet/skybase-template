@@ -23,7 +23,7 @@ function resizeImg (file, w, h) {
 }
 let uploadRule = {
   demo: {
-    allowType: ['image/png', 'image/jpg', 'image/jpeg'], // 允许的后缀 必须是mime值，这边可以和api配置同步
+    allowType: ['image/png', 'image/jpg', 'image/jpeg'], // 去除可传任意文件。允许的后缀 必须是mime值，这边可以和api配置同步
     size: 1024 * 1024 * 5, // 5M 注意总的上传字节限制在index和nginx，这边可以和api配置同步
     path: 'demo',
     nameRule: function () {
@@ -74,7 +74,7 @@ module.exports = {
     let fileFullName
     $.log('demo upload')
     if (file) {
-      if (rule.allowType.indexOf(file.type) < 0) {
+      if (rule.allowType && rule.allowType.indexOf(file.type) < 0) {
         ctx.throwCode(400, '文件类型不允许.')
         return
       }
