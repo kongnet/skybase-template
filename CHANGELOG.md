@@ -1,3 +1,12 @@
+## [0.1.42](https://github.com/kongnet/skybase-template/compare/v0.1.41...v0.1.42) (2020-03-05)
+
+
+### :sparkles:
+
+* 增加自动产生文档，mysql增强 ([899441d](https://github.com/kongnet/skybase-template/commit/899441da4adf4eb4805c09f4c007d06c0d686641))
+
+
+
 ## [0.1.41](https://github.com/kongnet/skybase-template/compare/v0.1.40...v0.1.41) (2020-02-17)
 
 

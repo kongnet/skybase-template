@@ -11,6 +11,11 @@
       <button id="submit">上传</button>
     </div>
     <div id="preview"></div>
+    <pre>
+      任意文件上传
+      1、修改api定义，去除fileType属性
+      2、修改router中的upload.js修改allowType让其不判断类型
+    </pre>
     <script>
       function init () {
         let demoUploadUrl = 'http://127.0.0.1:13000/skyapi/mock/upload'
