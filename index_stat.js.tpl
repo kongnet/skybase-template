@@ -43,6 +43,8 @@ sky.start(config, async () => {
   console.log('http://127.0.0.1:13000/skyapi/mock/img?size=128x128', '占位符例子')
   console.log('http://127.0.0.1:13000/skyapi/probe/mysql', '查看探针例子')
   console.log('http://127.0.0.1:13000/skyapi/sky-stat/getOne?api=_skyapi_sky-stat_getAll&type=chart', '某接口5m 1h 1d图形统计')
+  
+  console.log('http://127.0.0.1:13000/skyapi/mock/getSign?t=1&sign=4540a09b38d67bd256b296d5d3c27ab682426965&a=1','needSign例子')
   // console.log(global.$G)
   let r = await rts.loadOneScript('会员', path.join(__dirname, '会员统计.lua'))  // 加载一个rts的统计算法实例
   console.log(rts.scriptSha1s)

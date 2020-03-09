@@ -46,6 +46,10 @@ module.exports = {
   async getEmpty (ctx) {
     ctx.ok('返回正常')
   },
+  async getSign (ctx) {
+    const { t, sign } = ctx.checkedData.data
+    ctx.ok(['通过验签', t, sign]) //这里时间用t参数
+  },
   async getHtml (ctx) {
     ctx.type = 'html'
     ctx.body = '<H1>Hello World</H1>'

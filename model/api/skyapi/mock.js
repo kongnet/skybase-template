@@ -110,6 +110,30 @@ module.exports = {
     needSign: false,
     front: true
   },
+  getSign: {
+    name: 'getSign',
+    desc: 'getSign',
+    method: 'get',
+    controller: 'mock/easy.getSign',
+    param: {
+      t: {
+        name: 't',
+        desc: '时间戳',
+        type: 'int',
+        req: 0 //即使不必填也需要有，想看./middleware/sample-middleware.js
+      },
+      sign: {
+        name: 'sign',
+        desc: 'sign算法得到的hash值',
+        type: 'string',
+        req: 0 //即使不必填也需要有，想看./middleware/sample-middleware.js
+      }
+    },
+    test: {},
+    token: false,
+    needSign: true,
+    front: true
+  },
   getHtml: {
     name: 'getHtml',
     desc: 'getHtml',

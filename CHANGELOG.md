@@ -1,3 +1,12 @@
+## [0.1.43](https://github.com/kongnet/skybase-template/compare/v0.1.42...v0.1.43) (2020-03-06)
+
+
+### :zap:
+
+* 任意上传判断修改 ([dd2fb57](https://github.com/kongnet/skybase-template/commit/dd2fb57a75c8179a6a1d43ebab8ebdae4066bf7e))
+
+
+
 ## [0.1.42](https://github.com/kongnet/skybase-template/compare/v0.1.41...v0.1.42) (2020-03-05)
 
 
