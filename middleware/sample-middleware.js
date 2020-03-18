@@ -51,7 +51,7 @@ module.exports = async (ctx, next) => {
   const url = ctx.request.url
   const apiPath = url.split('?')[0]
   console.log(ip, url) //,$G.api
-  if ($G.api[apiPath].needSign) {
+  if ($G.api[apiPath] && $G.api[apiPath].needSign) {
     //需要验证
     if (checkSign(reqObj).code === 400) {
       ctx.throwCode(400, '验签字段不完整') //返回给前端，缺少t 和 sign

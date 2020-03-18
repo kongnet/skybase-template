@@ -1,3 +1,12 @@
+## [0.1.44](https://github.com/kongnet/skybase-template/compare/v0.1.43...v0.1.44) (2020-03-09)
+
+
+### :sparkles:
+
+* 增加needsign例子 ([725ac82](https://github.com/kongnet/skybase-template/commit/725ac82f10ec794977f7a07d89c98c3e2a8d45c7))
+
+
+
 ## [0.1.43](https://github.com/kongnet/skybase-template/compare/v0.1.42...v0.1.43) (2020-03-06)
 
 
