@@ -124,26 +124,28 @@ module.exports = async (ctx, next) => {
   const url = ctx.request.url
   const apiPath = url.split('?')[0]
 
-  const { limit = {} } = api[apiPath] || {}
+  const { limit } = api[apiPath] || {}
 
   apiLimit[apiPath] = apiLimit[apiPath] || {
     lockKey: null,
     lockExpire: 0
   }
 
-  const lockRes = await lock(limit, apiPath, start)
-  if (lockRes[0] !== 200) {
-    return ctx.throwCode(lockRes)
+  let lockKey
+  if (limit) {
+    const lockRes = await lock(limit, apiPath, start)
+    if (lockRes[0] !== 200) {
+      return ctx.throwCode(lockRes)
+    }
+    lockKey = lockRes[2].lockKey
   }
-
-  const { lockKey } = lockRes[2]
 
   if (next) {
     await next()
   }
 
   // 解锁
-  if (limit.unlockUntilComplete !== false) {
+  if (lockKey && limit.unlockWhenComplete !== false) {
     await unlock(apiPath, lockKey)
   }
 }
