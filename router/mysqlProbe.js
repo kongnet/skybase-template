@@ -1,10 +1,11 @@
 /* global $ */
-const mysqlProbe = require('../service/mysqlProbe.js')
+const MysqlProbe = require('../service/mysqlProbe.js')
 const fs = require('fs')
 const path = require('path')
 module.exports = {
   async getTableColumnSize (ctx) {
     const { outputType } = ctx.checkedData.data
+    const mysqlProbe = new MysqlProbe(ctx)
     const r = await mysqlProbe.getTableColumnSize(ctx.checkedData.data)
     if (r && r.code === 0) {
       if (outputType === 'html') {

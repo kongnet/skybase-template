@@ -31,6 +31,7 @@ let columnSql = `SELECT
   table_schema NOT IN ( 'information_schema', 'performance_schema', 'mysql', 'sys' )
   ORDER BY table_schema;`
 async function getTableColumnSize () {
+  //console.log('url', this.ctx.request.url) ctx可以直接使用
   let r = await db.cmd(sql).run()
   let arr = []
   let arrSize = []
@@ -142,10 +143,13 @@ async function getMysqlData (data) {
   let r = await global[data.instanceName || 'db'].cmd(data.queryStr).run()
   return r
 }
-getDbTableColumn()
-module.exports = {
-  getTableColumnSize,
-  getDbTable,
-  getDbTableColumn,
-  getMysqlData
+//getDbTableColumn()
+module.exports = function (ctx) {
+  return {
+    getTableColumnSize,
+    getDbTable,
+    getDbTableColumn,
+    getMysqlData,
+    ctx
+  }
 }
