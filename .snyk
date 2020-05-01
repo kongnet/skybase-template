@@ -1,0 +1,18 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - cheerio > lodash:
+        patched: '2020-05-01T05:17:10.152Z'
+    - request-promise-native > request-promise-core > lodash:
+        patched: '2020-05-01T05:17:10.152Z'
+    - skybase > kafka-node > lodash:
+        patched: '2020-05-01T05:17:10.152Z'
+    - skybase > kafka-node > async > lodash:
+        patched: '2020-05-01T05:17:10.152Z'
+    - skybase > request-promise-native > request-promise-core > lodash:
+        patched: '2020-05-01T05:17:10.152Z'
+    - j2sql2 > mssql > tedious > @azure/ms-rest-nodeauth > adal-node > async > lodash:
+        patched: '2020-05-01T05:17:10.152Z'
