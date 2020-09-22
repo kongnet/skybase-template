@@ -1,3 +1,12 @@
+## [0.1.46](https://github.com/kongnet/skybase-template/compare/v0.1.45...v0.1.46) (2020-04-14)
+
+
+### :zap:
+
+* ctx传入service层用法，见mysqlProbe ([1f2b24f](https://github.com/kongnet/skybase-template/commit/1f2b24f1979a19be24e5e90c383bfbbf00a76f7d))
+
+
+
 ## [0.1.45](https://github.com/kongnet/skybase-template/compare/v0.1.44...v0.1.45) (2020-03-18)
 
 

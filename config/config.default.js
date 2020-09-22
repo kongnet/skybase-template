@@ -13,6 +13,7 @@ module.exports = {
     timeout: 60000,
     charset: 'utf8mb4',
     supportBigNumbers: true,
+    bigNumberStrings: true,
     multipleStatements: true,
     connectionLimit: 1000,
     /*
