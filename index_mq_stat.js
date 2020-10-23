@@ -26,7 +26,7 @@ config.beforeMount = async () => {
     prefix: Pack.name
   })
 }
-config = Object.assign(config, skyConfig) //将默认config和本地的config合并
+config = Object.assign(config, skyConfig) // 将默认config和本地的config合并
 sky.start(config, async () => {
   console.log('mq-redis 成功启动')
   console.log('使用ab.exe进行压力测试')

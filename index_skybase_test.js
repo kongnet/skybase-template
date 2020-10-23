@@ -1,6 +1,6 @@
 const sky = require('skybase')
 let config = require('./config')
-const skyConfig =require('./skyconfig')
+const skyConfig = require('./skyconfig')
 
 const Pack = require('./package.json')
 
@@ -40,7 +40,7 @@ config.beforeMount = async () => {
   // 连接kafka
   global.Kafka = await createKafka(config.kafka) */
 }
-config = Object.assign(config,skyConfig) //将默认config和本地的config合并
+config = Object.assign(config, skyConfig) // 将默认config和本地的config合并
 sky.start(config, async () => {
   console.log('项目成功启动')
   console.log('http://127.0.0.1:13000/skyapi/mock/first', '查看mock例子')
@@ -48,12 +48,12 @@ sky.start(config, async () => {
   console.log('http://127.0.0.1:13000/skyapi/probe/mysql', '查看探针例子')
   console.log('http://127.0.0.1:13000/skyapi/sky-stat/getOne?api=_skyapi_sky-stat_getAll&type=chart', '某接口5m 1h 1d图形统计')
 
-  let dbExt=require('./model/crud.js') //将一些操作扩展到 db.tableName.ext中去 数据库操作 详细见j2sql模块
-  for(let i in db){
-    if(typeof db[i]==='object' && !i.includes('_')){
-      db[i].ext={}
-      dbExt(db[i].ext,i)
+  const dbExt = require('./model/crud.js') // 将一些操作扩展到 db.tableName.ext中去 数据库操作 详细见j2sql模块
+  for (const i in db) {
+    if (typeof db[i] === 'object' && !i.includes('_')) {
+      db[i].ext = {}
+      dbExt(db[i].ext, i)
     }
   }
-  //$.log(await db.t1.R({d_flag:0}, {}, {c_time:-1}, 10000).run(0))
+  // $.log(await db.t1.R({d_flag:0}, {}, {c_time:-1}, 10000).run(0))
 })

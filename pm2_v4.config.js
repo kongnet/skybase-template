@@ -3,8 +3,8 @@
  * */
 const Package = require('./package.json')
 const port = []
-let appName = []
-let apps = []
+const appName = []
+const apps = []
 const env = 'test'
 for (let i = 0; i < 4; i++) {
   port.push(13000 + i)
