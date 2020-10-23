@@ -417,9 +417,10 @@ async function saveMDs (mds) {
     }
   }
 
-  await updateSideBar(catalog)
+  let sideBar = await updateSideBar(catalog)
 
   await hFs.saveFile(path.join(__dirname, fileDir, `_navbar.md`), '') // docsify 会读这个文件夹里的这个配置
+  await hFs.saveFile(path.join(__dirname, fileDir, `_sidebar.md`), sideBar) // docsify 会读这个文件夹里的这个配置
 
   return path.join(__dirname, fileDir)
 }
@@ -430,13 +431,14 @@ async function updateSideBar (catalog) {
   // const markForReg = mark.replace(/([!])/g, '\\$1')
 
   const filePath = path.join(__dirname, docsifyPath, '_sidebar_template.md')
-  const sideBar = ((await hFs.readFile(filePath)) || '').toString()
+  let sideBar = ((await hFs.readFile(filePath)) || '').toString()
   // .replace(new RegExp(`\\n*${markForReg}[\\w\\W]*${markForReg}`, 'g'), '') // 删掉自动添加的内容，现在使用template文件了不会有自动添加的
-
-  return hFs.saveFile(
+  sideBar = sideBar + `\n${mark}\n\n${catalog.join('\n')}\n\n${mark}`
+  await hFs.saveFile(
     path.join(__dirname, docsifyPath, '_sidebar.md'),
-    sideBar + `\n${mark}\n\n${catalog.join('\n')}\n\n${mark}`
+    sideBar
   )
+  return sideBar
 }
 
 // 更新历史记录
