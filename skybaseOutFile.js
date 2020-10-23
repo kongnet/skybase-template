@@ -265,7 +265,8 @@ function genConfig(obj) {
         },
         'index.html': [path.join(dir, 'www', 'markdown', 'index.html'), obj, ''],
         '_coverpage.md': [path.join(dir, 'www', 'markdown', '_coverpage.md'), obj, ''],
-        '_navbar.md': [path.join(dir, 'www', 'markdown', '_navbar.md'), obj, '']
+        '_navbar.md': [path.join(dir, 'www', 'markdown', '_navbar.md'), obj, ''],
+        '_sidebar_template.md': [path.join(dir, 'www', 'markdown', '_sidebar_template.md'), obj, '']
       }
     }
   }

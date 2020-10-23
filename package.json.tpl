@@ -7,7 +7,8 @@
     "start": "nodemon index.js",
     "test": "mocha ./tests/*.js",
     "testapi": "node ./tool/scanNoParam.js",
-    "cz": "git add . && git status && git cz"
+    "cz": "git add . && git status && git cz",
+    "api": "node ./tool/api2markdown.js"
   },
   "author": "",
   "license": "MIT",
