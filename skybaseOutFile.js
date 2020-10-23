@@ -1,7 +1,7 @@
 const path = require('path')
 const dir = './_temp_jt_skybase/'
 
-function genConfig (obj) {
+function genConfig(obj) {
   let o = {
     config: {
       'index.js': [path.join(dir, 'config', 'index.js'), obj, '配置加载文件'],
@@ -249,6 +249,23 @@ function genConfig (obj) {
       ],
       upload: {
         demo: {}
+      },
+      markdown: {
+        docsify: {
+          components: {
+            "prism-bash.js": [path.join(dir, 'www', 'docsify', 'components', 'prism-bash.js'), obj, ''],
+            "prism-json.js": [path.join(dir, 'www', 'docsify', 'components', 'prism-json.js'), obj, '']
+          },
+          lib: {
+            "docsify.min.js": [path.join(dir, 'www', 'docsify', 'lib', 'docsify.min.js'), obj, ''],
+            themes: {
+              "vue.css": [path.join(dir, 'www', 'docsify', 'lib', 'themes', 'vue.css'), obj, ''],
+            }
+          }
+        },
+        'index.html': [path.join(dir, 'www', 'markdown', 'index.html'), obj, ''],
+        '_coverpage.md': [path.join(dir, 'www', 'markdown', '_coverpage.md'), obj, ''],
+        '_navbar.md': [path.join(dir, 'www', 'markdown', '_navbar.md'), obj, '']
       }
     }
   }

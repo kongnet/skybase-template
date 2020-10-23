@@ -1,3 +1,12 @@
+## [0.1.47](https://github.com/kongnet/skybase-template/compare/v0.1.46...v0.1.47) (2020-09-22)
+
+
+### :zap:
+
+* 增加bigNumberStrings ([ec53a39](https://github.com/kongnet/skybase-template/commit/ec53a393f01bb0fad5c9d00fce83bf9f19e13c60))
+
+
+
 ## [0.1.46](https://github.com/kongnet/skybase-template/compare/v0.1.45...v0.1.46) (2020-04-14)
 
 

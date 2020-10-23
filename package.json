@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "apitest": "node ./tool/scanNoParam.js",
     "cz": "conventional-changelog -p atom -i CHANGELOG.md -s -r 0 && git add . && git status && git cz",
-    "push": "npm version patch && npm publish . && git push"
+    "push": "npm version patch && npm publish . && git push",
+    "api": "node ./tool/api2markdown.js"
   },
   "repository": {
     "type": "git",
