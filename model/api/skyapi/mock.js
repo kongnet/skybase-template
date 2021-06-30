@@ -120,13 +120,13 @@ module.exports = {
         name: 't',
         desc: '时间戳',
         type: 'int',
-        req: 0 //即使不必填也需要有，想看./middleware/sample-middleware.js
+        req: 0 // 即使不必填也需要有，想看./middleware/sample-middleware.js
       },
       sign: {
         name: 'sign',
         desc: 'sign算法得到的hash值',
         type: 'string',
-        req: 0 //即使不必填也需要有，想看./middleware/sample-middleware.js
+        req: 0 // 即使不必填也需要有，想看./middleware/sample-middleware.js
       }
     },
     test: {},
@@ -227,6 +227,34 @@ module.exports = {
         size: [0, 1024 * 1024 * 0.5],
         fileType: ['image/png', 'image/jpg', 'image/jpeg'],
         req: 1
+      }
+    },
+    test: {},
+    token: false,
+    needSign: false,
+    front: true
+  },
+  googleQR: {
+    name: 'google验证二维码添加',
+    desc: 'google验证二维码添加',
+    method: 'get',
+    controller: 'mock/easy.googleQR',
+    param: {},
+    test: {},
+    token: false,
+    needSign: false,
+    front: true
+  },
+  googleVerify: {
+    name: 'google验证',
+    desc: 'google验证',
+    method: 'get',
+    controller: 'mock/easy.googleVerify',
+    param: {
+      userToken: {
+        name: 'userToken',
+        desc: 'userToken字符串',
+        type: 'string'
       }
     },
     test: {},

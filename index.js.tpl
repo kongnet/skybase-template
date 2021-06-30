@@ -52,6 +52,12 @@ sky.start(config, async () => {
 
   console.log('http://127.0.0.1:13000/skyapi/redirect/original','url重定向')
 
+  console.log('http://127.0.0.1:13000/skyapi/mock/googleQR','google验证添加')
+  console.log('http://127.0.0.1:13000/skyapi/mock/googleVerify?userToken=','google验证')
+
+
+  
+
 
 
 

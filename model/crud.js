@@ -3,21 +3,21 @@
 /* global isDevMode */
 'use strict'
 
-function getDB (userObj = {},tableName, option = {}) {
+function getDB (userObj = {}, tableName, option = {}) {
   if (!tableName || !db[tableName]) {
     $.err($.c.r('表在此数据库中不存在'))
     return 0
   }
 
-  let optionDefault ={
-    isDevMode:1,
-    db:global.db,
-    delflagField:'d_flag', // 默认
-    createTimeField:'c_time',
-    modifyTimeField:'m_time'
+  const optionDefault = {
+    isDevMode: 1,
+    db: global.db,
+    delflagField: 'd_flag', // 默认
+    createTimeField: 'c_time',
+    modifyTimeField: 'm_time'
   }
-  option = Object.assign(optionDefault,option)
-  if (!db[tableName].field.includes(option.delflagField)||!db[tableName].field.includes(option.createTimeField)||!db[tableName].field.includes(option.modifyTimeField)) {
+  option = Object.assign(optionDefault, option)
+  if (!db[tableName].field.includes(option.delflagField) || !db[tableName].field.includes(option.createTimeField) || !db[tableName].field.includes(option.modifyTimeField)) {
     $.err($.c.r(`${tableName} 表需要有删除标记：${option.delflagField} 创建时间：${option.createTimeField} 修改时间：${option.modifyTimeField}`))
     return 0
   }
@@ -116,7 +116,7 @@ function getDB (userObj = {},tableName, option = {}) {
 
   async function updateById (id, colObj) {
     if (colObj) {
-      if (colObj['id']) delete colObj['id']
+      if (colObj.id) { delete colObj.id }
       return await db[tableName].U({ id: +id, d_flag: 0 }, colObj).run(0, isDevMode)
     } else {
       $.err('更新字段输入有误!')
@@ -152,9 +152,9 @@ function getDB (userObj = {},tableName, option = {}) {
     updateById,
     addById
   }
-  //if (userModelsLoad) {
-let o = $.ext(userObj,dbOpt)
-//}
+  // if (userModelsLoad) {
+  const o = $.ext(userObj, dbOpt)
+  // }
   return o
 }
 module.exports = getDB

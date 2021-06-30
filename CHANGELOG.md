@@ -1,3 +1,12 @@
+## [0.1.52](https://github.com/kongnet/skybase-template/compare/v0.1.51...v0.1.52) (2020-10-23)
+
+
+### :zap:
+
+* api文档生成功能加入 ([8f8f21c](https://github.com/kongnet/skybase-template/commit/8f8f21c2f2a396d77bb054df2d3f26ef0a736034))
+
+
+
 ## [0.1.51](https://github.com/kongnet/skybase-template/compare/v0.1.50...v0.1.51) (2020-10-23)
 
 

@@ -27,7 +27,8 @@
     "axios": "^0.19.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
-    "svg-captcha": "^1.4.0"
+    "svg-captcha": "^1.4.0",
+    "speakeasy": "*"
   },
   "devDependencies": {
     "mocha": "^6.2.0"

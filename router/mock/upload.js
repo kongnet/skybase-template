@@ -10,7 +10,7 @@ try {
   sharp = function () {}
 }
 function md5 (str) {
-  let decipher = crypto.createHash('md5')
+  const decipher = crypto.createHash('md5')
   return decipher.update(str).digest('hex')
 }
 function resizeImg (file, w, h) {
@@ -21,7 +21,7 @@ function resizeImg (file, w, h) {
     .toFile(file + `_${w}x${h}.jpg`)
   return 1
 }
-let uploadRule = {
+const uploadRule = {
   demo: {
     allowType: ['image/png', 'image/jpg', 'image/jpeg'], // 去除可传任意文件。允许的后缀 必须是mime值，这边可以和api配置同步
     size: 1024 * 1024 * 5, // 5M 注意总的上传字节限制在index和nginx，这边可以和api配置同步
@@ -67,10 +67,10 @@ let uploadRule = {
 /* global $ */
 module.exports = {
   async demo (ctx) {
-    let data = ctx.request.fields
-    let file = data.file && data.file[0]
-    let rule = uploadRule['demo']
-    let fileName = rule.nameRule() // 文件名产生规则
+    const data = ctx.request.fields
+    const file = data.file && data.file[0]
+    const rule = uploadRule.demo
+    const fileName = rule.nameRule() // 文件名产生规则
     let fileFullName
     $.log('demo upload')
     if (file) {
@@ -83,7 +83,7 @@ module.exports = {
         return
       }
       fileFullName = fileName
-      let fileFullPath = `${__dirname}/../../www/${Config.upload_path ||
+      const fileFullPath = `${__dirname}/../../www/${Config.upload_path ||
         'upload'}/${rule.path}/${fileFullName}`
       fs.createReadStream(file.path)
         .pipe(fs.createWriteStream(fileFullPath))

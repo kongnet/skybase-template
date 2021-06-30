@@ -25,7 +25,7 @@ module.exports = {
     }
   },
   async captcha (ctx) {
-    let captcha = svgCaptcha.create({ color: 1, noise: 5 })
+    const captcha = svgCaptcha.create({ color: 1, noise: 5 })
     // await redis.set("user_session_key", captcha.text, "EX", 10) 超时单位秒 将验证码放到用户
     // 在登陆之前，建议使用一个ticket的值给每个页面做唯一标记，形成user_session_key
     ctx.type = 'image/svg+xml'

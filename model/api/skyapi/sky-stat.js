@@ -3,7 +3,7 @@ module.exports = {
     name: '相关统计接口',
     description: '相关统计接口'
   },
-  'getAll': {
+  getAll: {
     name: '获取所有统计',
     desc: '获取所有接口调用总数，每个接口1h的count执行最长max时长 执行min时长 avg时长',
     method: 'get',
@@ -17,13 +17,13 @@ module.exports = {
         type: 'string'
       }
     },
-    'token': false,
-    'needSign': false,
-    'err_code': {},
-    'test': {},
-    'front': true
+    token: false,
+    needSign: false,
+    err_code: {},
+    test: {},
+    front: true
   },
-  'getSome': {
+  getSome: {
     name: '获取某几个统计',
     desc: '获取指定列表中 api1h同getAll一样的数据',
     method: 'get',
@@ -44,13 +44,13 @@ module.exports = {
         type: 'string'
       }
     },
-    'token': false,
-    'needSign': false,
-    'err_code': {},
-    'test': {},
-    'front': true
+    token: false,
+    needSign: false,
+    err_code: {},
+    test: {},
+    front: true
   },
-  'getOne': {
+  getOne: {
     name: '获取单个统计',
     desc: '获取指定api 5m 24个点，1h 24个点,1d 30个点',
     method: 'get',
@@ -71,13 +71,13 @@ module.exports = {
         type: 'string'
       }
     },
-    'token': false,
-    'needSign': false,
-    'err_code': {},
-    'test': {},
-    'front': true
+    token: false,
+    needSign: false,
+    err_code: {},
+    test: {},
+    front: true
   },
-  'getSpecialKeys': {
+  getSpecialKeys: {
     name: '获取指定几个key相应数据',
     desc: '获取指定几个key相应数据 5m 24个点，1h 24个点,1d 30个点',
     method: 'get',
@@ -112,10 +112,10 @@ module.exports = {
         type: 'number'
       }
     },
-    'token': false,
-    'needSign': false,
-    'err_code': {},
-    'test': {},
-    'front': true
+    token: false,
+    needSign: false,
+    err_code: {},
+    test: {},
+    front: true
   }
 }

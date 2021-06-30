@@ -22,9 +22,10 @@ async function req (url = 'http://www.baidu.com', isJson = false, proxy) {
   return body
 }
 */
-let request = require('axios')
+const speakeasy = require('speakeasy')
+const request = require('axios')
 async function req (url = 'http://www.baidu.com', isJson = false, proxy) {
-  let body = await request({
+  const body = await request({
     method: 'GET',
     url: url,
     responseType: 'json',
@@ -48,7 +49,7 @@ module.exports = {
   },
   async getSign (ctx) {
     const { t, sign } = ctx.checkedData.data
-    ctx.ok(['通过验签', t, sign]) //这里时间用t参数
+    ctx.ok(['通过验签', t, sign]) // 这里时间用t参数
   },
   async getHtml (ctx) {
     ctx.type = 'html'
@@ -57,12 +58,12 @@ module.exports = {
   async getUrl (ctx) {
     const { url } = ctx.checkedData.data
     // let r = await req(url) //request-promise-native
-    let r = (await req(url)).data
+    const r = (await req(url)).data
     ctx.type = 'html'
     ctx.body = `<pre style='text-align:left'>${r.esHtml()}</pre>${r}`
   },
   async getBing (ctx) {
-    let r = await req(
+    const r = await req(
       'https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1',
       true
     )
@@ -79,5 +80,30 @@ module.exports = {
     ctx.body = $.qrcode.generateHTML(
       str || 'https://github.com/kongnet/skybase/blob/master/BestPractice.md'
     )
+  },
+  /* google验证
+{
+  ascii: 'KH#RoG%6rEE9It#)gI2l1W&#X2:E1;sW',
+  hex: '4b4823526f47253672454539497423296749326c3157262358323a45313b7357',
+  base32: 'JNECGUTPI4STM4SFIU4US5BDFFTUSMTMGFLSMI2YGI5EKMJ3ONLQ',
+  otpauth_url: 'otpauth://totp/SecretKey?secret=JNECGUTPI4STM4SFIU4US5BDFFTUSMTMGFLSMI2YGI5EKMJ3ONLQ'
+}
+*/
+  async googleQR (ctx) {
+    const qrURL = speakeasy.otpauthURL({ secret: '4b4823526f47253672454539497423296749326c3157262358323a45313b7357', encoding: 'hex', label: 'Sky2021 Secret', algorithm: 'sha512' })
+    ctx.type = 'html'
+    ctx.body = 'Sky2021 Secret<br>' + $.qrcode.generateHTML(qrURL)
+  },
+  async googleVerify (ctx) {
+    const { userToken } = ctx.checkedData.data
+    const verifyFuc = token => {
+      return speakeasy.totp.verify({
+        secret: 'JNECGUTPI4STM4SFIU4US5BDFFTUSMTMGFLSMI2YGI5EKMJ3ONLQ',
+        encoding: 'base32',
+        token: token
+      })
+    }
+    ctx.type = 'html'
+    ctx.body = verifyFuc(userToken) ? '🔥ok' : '😶请先添加<a href="./googleQR">Sky2021 Secret</a>'
   }
 }
