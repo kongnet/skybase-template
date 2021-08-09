@@ -102,7 +102,8 @@ module.exports = {
    */
   bodyParse: {
     multipart: !0,
-    formLimit: '100mb', // 100M 文件上传限制
+    maxFileSize: 1024 * 1024 * 1024, // 1G 文件上传限制 和下面formLimit一起修改
+    formLimit: '1000mb', // 1G 文件上传限制
     jsonLimit: '2mb', // body中json格式大小限制
     textLimit: '2mb', //
     extendTypes: {

@@ -1,3 +1,12 @@
+## [0.1.53](https://github.com/kongnet/skybase-template/compare/v0.1.52...v0.1.53) (2021-06-30)
+
+
+### :sparkles:
+
+* 增加google验证演示接口 ([fcc8850](https://github.com/kongnet/skybase-template/commit/fcc8850b306774810ad1012c5e8dbb4928a0f2b9))
+
+
+
 ## [0.1.52](https://github.com/kongnet/skybase-template/compare/v0.1.51...v0.1.52) (2020-10-23)
 
 
