@@ -10,7 +10,7 @@ module.exports = {
     charset: 'utf8mb4',
     supportBigNumbers: true,
     multipleStatements: true,
-    connectionLimit: 1000,
+    connectionLimit: 10,
     showSql: true // 使用BaseModel的才有效，打印sql
   }
 }

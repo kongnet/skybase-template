@@ -33,7 +33,7 @@ module.exports = {
     timeout: 60000,
     charset: 'utf8mb4',
     multipleStatements: true,
-    connectionLimit: 1000,
+    connectionLimit: 10,
     showSql: true // 使用BaseModel的才有效，打印sql
   },
   redis: {
