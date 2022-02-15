@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "j2sql2": "^1.9.60",
+    "j2sql2": "^1.9.101",
     "meeko": "^1.8.23",
     "request-promise-native": "^1.0.7",
     "skybase": "^0.1.58",
