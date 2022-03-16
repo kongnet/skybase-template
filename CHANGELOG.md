@@ -1,4 +1,4 @@
-## 0.1.54 (2022-01-05)
+## [0.1.55](https://github.com/kongnet/skybase-template/compare/03a68593abd1153e6bb8f48a18afeddd7f63572a...v0.1.55) (2022-01-05)
 
 
 ### :ambulance:
@@ -37,6 +37,7 @@
 ### :zap:
 
 * 任意上传判断修改 ([dd2fb57](https://github.com/kongnet/skybase-template/commit/dd2fb57a75c8179a6a1d43ebab8ebdae4066bf7e))
+* 修改链接增长数为10 ([ea39a53](https://github.com/kongnet/skybase-template/commit/ea39a53af8de395c1db6fea6fded87f0249ffb2f))
 * 增加上传限制config属性maxFileSize ([fe6ef77](https://github.com/kongnet/skybase-template/commit/fe6ef774dc6de46a6c4aab60fdd249e915b4f695))
 * 增加bigNumberStrings ([ec53a39](https://github.com/kongnet/skybase-template/commit/ec53a393f01bb0fad5c9d00fce83bf9f19e13c60))
 * api文档生成功能加入 ([8f8f21c](https://github.com/kongnet/skybase-template/commit/8f8f21c2f2a396d77bb054df2d3f26ef0a736034))

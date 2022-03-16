@@ -13,7 +13,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "amqplib": "^0.5.3",
+    "amqplib": "^0.7.0",
     "ioredis": "^4.9.5",
     "j2sql": "^1.9.21",
     "j2sql2": "*",
