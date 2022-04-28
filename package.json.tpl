@@ -17,7 +17,7 @@
     "ioredis": "^4.9.5",
     "j2sql2": "*",
     "cz-jt": "*",
-    "mock": "*",
+    "mockjs": "*",
     "skybase": "*",
     "skyrts": "*",
     "meeko": "*",
