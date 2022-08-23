@@ -62,6 +62,28 @@ module.exports = {
           code: 0,
           msg: 'ok',
           t: 1559204889719
+        },
+        properties: {
+          data: {
+            type: 'Object|Array',
+            description: '对象或数组,建议统一返回对象',
+            required: true
+          },
+          code: {
+            type: 'Number',
+            description: '200-500 或者 业务自定义代码',
+            required: true
+          },
+          msg: {
+            type: 'String',
+            description: '非国际化消息说明',
+            required: true
+          },
+          t: {
+            type: 'Number',
+            description: '时间戳',
+            required: true
+          }
         }
       }
     },
