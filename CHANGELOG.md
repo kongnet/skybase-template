@@ -1,3 +1,12 @@
+## [0.1.59](https://github.com/kongnet/skybase-template/compare/v0.1.58...v0.1.59) (2022-08-23)
+
+
+### :art:
+
+* 增加例子中返回参数的写法 ([1a9a144](https://github.com/kongnet/skybase-template/commit/1a9a144dee18ff79e5987236f1cb4d260741d69c))
+
+
+
 ## [0.1.58](https://github.com/kongnet/skybase-template/compare/v0.1.57...v0.1.58) (2022-04-28)
 
 
