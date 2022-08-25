@@ -99,7 +99,7 @@ new Chart(ctx).Line(data)
 <head>
 ${
   chart
-    ? `<script src="https://cdn.bootcss.com/Chart.js/1.0.2/Chart.min.js"></script>`
+    ? `<script src="//cdn.bootcss.com/Chart.js/1.0.2/Chart.min.js"></script>`
     : ''
 }
   <meta charset="utf-8"><title>${htmlTitle}</title>
