@@ -190,6 +190,11 @@ function genConfig (obj) {
         path.join(dir, 'tool', 'api2markdown.js'),
         obj,
         '自动参数api文档'
+      ],
+      'api2swagger.js': [
+        path.join(dir, 'tool', 'api2swagger.js'),
+        obj,
+        '自动swagger文档产生'
       ]
     },
     sql: {},
@@ -253,20 +258,81 @@ function genConfig (obj) {
       markdown: {
         docsify: {
           components: {
-            'prism-bash.js': [path.join(dir, 'www', 'markdown', 'docsify', 'components', 'prism-bash.js'), obj, ''],
-            'prism-json.js': [path.join(dir, 'www', 'markdown', 'docsify', 'components', 'prism-json.js'), obj, '']
+            'prism-bash.js': [
+              path.join(
+                dir,
+                'www',
+                'markdown',
+                'docsify',
+                'components',
+                'prism-bash.js'
+              ),
+              obj,
+              ''
+            ],
+            'prism-json.js': [
+              path.join(
+                dir,
+                'www',
+                'markdown',
+                'docsify',
+                'components',
+                'prism-json.js'
+              ),
+              obj,
+              ''
+            ]
           },
           lib: {
-            'docsify.min.js': [path.join(dir, 'www', 'markdown', 'docsify', 'lib', 'docsify.min.js'), obj, ''],
+            'docsify.min.js': [
+              path.join(
+                dir,
+                'www',
+                'markdown',
+                'docsify',
+                'lib',
+                'docsify.min.js'
+              ),
+              obj,
+              ''
+            ],
             themes: {
-              'vue.css': [path.join(dir, 'www', 'markdown', 'docsify', 'lib', 'themes', 'vue.css'), obj, '']
+              'vue.css': [
+                path.join(
+                  dir,
+                  'www',
+                  'markdown',
+                  'docsify',
+                  'lib',
+                  'themes',
+                  'vue.css'
+                ),
+                obj,
+                ''
+              ]
             }
           }
         },
-        'index.html': [path.join(dir, 'www', 'markdown', 'index.html'), obj, ''],
-        '_coverpage.md': [path.join(dir, 'www', 'markdown', '_coverpage.md'), obj, ''],
-        '_navbar.md': [path.join(dir, 'www', 'markdown', '_navbar.md'), obj, ''],
-        '_sidebar_template.md': [path.join(dir, 'www', 'markdown', '_sidebar_template.md'), obj, '']
+        'index.html': [
+          path.join(dir, 'www', 'markdown', 'index.html'),
+          obj,
+          ''
+        ],
+        '_coverpage.md': [
+          path.join(dir, 'www', 'markdown', '_coverpage.md'),
+          obj,
+          ''
+        ],
+        '_navbar.md': [
+          path.join(dir, 'www', 'markdown', '_navbar.md'),
+          obj,
+          ''
+        ],
+        '_sidebar_template.md': [
+          path.join(dir, 'www', 'markdown', '_sidebar_template.md'),
+          obj,
+          ''
+        ]
       }
     }
   }

@@ -1,3 +1,12 @@
+## [0.1.61](https://github.com/kongnet/skybase-template/compare/v0.1.60...v0.1.61) (2022-08-25)
+
+
+### :zap:
+
+* chart兼容http和https ([997337c](https://github.com/kongnet/skybase-template/commit/997337cbbfab2e024e0091cfff70506365c1ddc8))
+
+
+
 ## [0.1.60](https://github.com/kongnet/skybase-template/compare/v0.1.59...v0.1.60) (2022-08-23)
 
 
