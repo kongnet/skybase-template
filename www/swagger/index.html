@@ -1,0 +1,71 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+    <style>
+      html
+      {
+        box-sizing: border-box;
+        overflow: -moz-scrollbars-vertical;
+        overflow-y: scroll;
+      }
+
+      *,
+      *:before,
+      *:after
+      {
+        box-sizing: inherit;
+      }
+
+      body
+      {
+        margin:0;
+        background: #fafafa;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="swagger-ui"></div>
+
+    <script src="./swagger-ui-bundle.js"> </script>
+    <script src="./swagger-ui-standalone-preset.js"> </script>
+    <script src="./jsons/index.js"></script>
+    <script>
+      var viewHistory = location.search.match(/[?&]history=([^?&]+)/)
+      if(viewHistory){
+        viewHistory = viewHistory[1]
+      }
+    window.onload = function() {
+      // 参数参考:
+      // https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md
+      const ui = SwaggerUIBundle({
+        url: "./jsons/" + (viewHistory || window.newestApiDoc),
+        dom_id: '#swagger-ui',
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        deepLinking: true, // 不开启这个，就不会根据链接自动定位到指定接口
+        docExpansion: 'none', // 默认收起所有标签
+        defaultModelsExpandDepth: 5,
+        displayRequestDuration: true,
+        showExtensions: true,
+        showCommonExtensions: true,
+        filter: true, // 在所有标签签名加一个搜索框，按关键词搜索标签，不过标签一般很少，用不着它
+        layout: "StandaloneLayout"
+      })
+      // End Swagger UI call region
+
+      window.ui = ui
+    }
+  </script>
+  </body>
+</html>

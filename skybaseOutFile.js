@@ -333,6 +333,50 @@ function genConfig (obj) {
           obj,
           ''
         ]
+      },
+      swagger: {
+        'swagger-ui.css': [
+          path.join(dir, 'www', 'swagger', 'swagger-ui.css'),
+          obj,
+          ''
+        ],
+        'index.html': [path.join(dir, 'www', 'swagger', 'index.html'), obj, ''],
+        'oauth2-redirect.html': [
+          path.join(dir, 'www', 'swagger', 'oauth2-redirect.html'),
+          obj,
+          ''
+        ],
+        'absolute-path.js': [
+          path.join(dir, 'www', 'swagger', 'absolute-path.js'),
+          obj,
+          ''
+        ],
+        'index.js': [path.join(dir, 'www', 'swagger', 'index.js'), obj, ''],
+        'swagger-ui-bundle.js': [
+          path.join(dir, 'www', 'swagger', 'swagger-ui-bundle.js'),
+          obj,
+          ''
+        ],
+        'swagger-ui-standalone-preset.js': [
+          path.join(dir, 'www', 'swagger', 'swagger-ui-standalone-preset.js'),
+          obj,
+          ''
+        ],
+        'swagger-ui.js': [
+          path.join(dir, 'www', 'swagger', 'swagger-ui.js'),
+          obj,
+          ''
+        ],
+        'favicon-16x16.png': [
+          path.join(dir, 'www', 'swagger', 'favicon-16x16.png'),
+          obj,
+          ''
+        ],
+        'favicon-32x32.png': [
+          path.join(dir, 'www', 'swagger', 'favicon-32x32.png'),
+          obj,
+          ''
+        ]
       }
     }
   }

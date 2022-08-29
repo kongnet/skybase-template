@@ -1,3 +1,12 @@
+## [0.1.62](https://github.com/kongnet/skybase-template/compare/v0.1.61...v0.1.62) (2022-08-29)
+
+
+### :zap:
+
+* 产生swagger文档 ([4687268](https://github.com/kongnet/skybase-template/commit/4687268e76c5bfe1b9e8a333762a3b02127dcf5c))
+
+
+
 ## [0.1.61](https://github.com/kongnet/skybase-template/compare/v0.1.60...v0.1.61) (2022-08-25)
 
 
