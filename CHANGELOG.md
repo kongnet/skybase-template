@@ -1,3 +1,12 @@
+## [0.1.65](https://github.com/kongnet/skybase-template/compare/v0.1.64...v0.1.65) (2022-09-07)
+
+
+### :sparkles:
+
+* 增加redis监控指标 ([21392b4](https://github.com/kongnet/skybase-template/commit/21392b4a70a4fabda3dce0b010393f59ebf5f0e0))
+
+
+
 ## [0.1.64](https://github.com/kongnet/skybase-template/compare/v0.1.63...v0.1.64) (2022-09-07)
 
 

@@ -345,6 +345,7 @@ async function getRedis () {
   let redisArr = []
   let redisDescObj = {
     latency: 'Redis响应一个请求的时间',
+    instantaneous_ops_per_sec: '平均每秒处理请求总数',
     used_memory: '已使用内存',
     used_memory_human: '已使用内存',
     mem_fragmentation_ratio: '内存使用率',
