@@ -1,3 +1,12 @@
+## [0.1.64](https://github.com/kongnet/skybase-template/compare/v0.1.63...v0.1.64) (2022-09-07)
+
+
+### :sparkles:
+
+* 增加mysql指标接口 ([97b4f72](https://github.com/kongnet/skybase-template/commit/97b4f7266c704ae025f10869152a63f2491e05d9))
+
+
+
 ## [0.1.63](https://github.com/kongnet/skybase-template/compare/v0.1.62...v0.1.63) (2022-08-29)
 
 

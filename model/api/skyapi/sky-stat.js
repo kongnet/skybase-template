@@ -130,5 +130,17 @@ module.exports = {
     err_code: {},
     test: {},
     front: true
+  },
+  getRedis: {
+    name: '获取Redis一些性能指标',
+    desc: '获取Redis一些性能指标',
+    method: 'get',
+    controller: 'sky-stat/stat.getRedis',
+    param: {},
+    token: false,
+    needSign: false,
+    err_code: {},
+    test: {},
+    front: true
   }
 }

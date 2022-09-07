@@ -88,6 +88,12 @@ module.exports = {
 
     ctx.type = 'text/html'
     ctx.body = $.tools.genTemp.genHtml('Mysql Status', r)
+  },
+  async getRedis (ctx) {
+    let r = await skyapiService.getRedis() //如果有多个实例需要有个Redis的数组
+
+    ctx.type = 'text/html'
+    ctx.body = $.tools.genTemp.genHtml('Redis Status', r)
   }
 }
 

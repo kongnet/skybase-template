@@ -5,7 +5,8 @@ module.exports = {
   getSome,
   getOne,
   getSpecialKeys,
-  getMysql
+  getMysql,
+  getRedis
 }
 
 async function getSpecialKeys (arg) {
@@ -331,5 +332,82 @@ async function getMysql () {
       )
     }
   }
+  return htmlStr
+}
+async function getRedis () {
+  if (!global.redis) {
+    return ''
+  }
+  let r
+  let htmlStr = ''
+
+  let className = ''
+  let redisArr = []
+  let redisDescObj = {
+    latency: 'Redis响应一个请求的时间',
+    used_memory: '已使用内存',
+    used_memory_human: '已使用内存',
+    mem_fragmentation_ratio: '内存使用率',
+    evicted_keys: '由于最大内存限制被移除的key数量',
+    blocked_clients: '由于BLPOP,BRPOP,or BRPOPLPUSH而备阻塞的客户端',
+    connected_clients: '客户端连接数',
+    connected_slaves: 'slave数量',
+    master_last_io_seconds_ago: '最近一次主从交互之后的秒数',
+    db0: '数据库中key的情况',
+    db1: '数据库中key的情况',
+    db2: '数据库中key的情况',
+    db3: '数据库中key的情况',
+    db4: '数据库中key的情况',
+    db5: '数据库中key的情况',
+    db6: '数据库中key的情况',
+    db7: '数据库中key的情况',
+    db8: '数据库中key的情况',
+    db9: '数据库中key的情况',
+    db10: '数据库中key的情况',
+    db11: '数据库中key的情况',
+    db12: '数据库中key的情况',
+    db13: '数据库中key的情况',
+    db14: '数据库中key的情况',
+    db15: '数据库中key的情况',
+    rdb_last_save_time: '最后一次持久化保存粗盘的时间戳',
+    rdb_changes_since_last_save: '自最后一次持久化以来数据库的更改数',
+    rejected_connections: '由于达到maxclient限制而被拒绝的连接数',
+    keyspace_misses: 'key值查找失败(没命中)次数',
+    master_link_down_since_seconds: '主从断开的持续时间(秒)',
+    sync_partial_err: '从半同步复制失败的次数,是否需要增加同步缓存'
+  }
+  ;(await redis.info()).split('\r\n').map(x => {
+    if (x.at(0) === '#') {
+      className = x.slice(1)
+    } else {
+      if (x.length > 0) {
+        let item = x.split(':')
+        redisArr.push({
+          Variable_name: item[0],
+          Value: item[1],
+          class: className
+        })
+      }
+    }
+  })
+  redisArr = redisArr
+    .filter(x => redisDescObj[x['Variable_name']])
+    .map(x => [
+      x['Variable_name'],
+      x['Value'],
+      redisDescObj[x['Variable_name']] || '',
+      x['class']
+    ])
+  htmlStr = $.tools.genTemp.gridTable(
+    [
+      {
+        dataTitleArr: ['指标', '值', '说明', '分类'],
+        dataArr: redisArr,
+        dataTitle: 'Redis Monitor ' + new Date().date2Str()
+      }
+    ],
+    'open',
+    true
+  )
   return htmlStr
 }
