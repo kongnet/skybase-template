@@ -82,6 +82,12 @@ module.exports = {
       return
     }
     ctx.throwCode(200, '成功', r.data)
+  },
+  async getMysql (ctx) {
+    let r = await skyapiService.getMysql() //如果有多个实例需要有个db的数组
+
+    ctx.type = 'text/html'
+    ctx.body = $.tools.genTemp.genHtml('Mysql Status', r)
   }
 }
 

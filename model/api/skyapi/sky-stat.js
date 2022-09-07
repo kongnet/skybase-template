@@ -1,11 +1,12 @@
 module.exports = {
   __swagger__: {
-    name: '相关统计接口',
+    name: '接口访问统计',
     description: '相关统计接口'
   },
   getAll: {
     name: '获取所有统计',
-    desc: '获取所有接口调用总数，每个接口1h的count执行最长max时长 执行min时长 avg时长',
+    desc:
+      '获取所有接口调用总数，每个接口1h的count执行最长max时长 执行min时长 avg时长',
     method: 'get',
     controller: 'sky-stat/stat.getAll',
     param: {
@@ -112,6 +113,18 @@ module.exports = {
         type: 'number'
       }
     },
+    token: false,
+    needSign: false,
+    err_code: {},
+    test: {},
+    front: true
+  },
+  getMysql: {
+    name: '获取Mysql一些性能指标',
+    desc: '获取Mysql一些性能指标',
+    method: 'get',
+    controller: 'sky-stat/stat.getMysql',
+    param: {},
     token: false,
     needSign: false,
     err_code: {},
