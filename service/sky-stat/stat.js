@@ -372,7 +372,7 @@ async function getRedis () {
     db13: '数据库中key的情况',
     db14: '数据库中key的情况',
     db15: '数据库中key的情况',
-    rdb_last_save_time: '最后一次持久化保存粗盘的时间戳',
+    rdb_last_save_time: '最后一次持久化保存磁盘的时间戳',
     rdb_changes_since_last_save: '自最后一次持久化以来数据库的更改数',
     rejected_connections: '由于达到maxclient限制而被拒绝的连接数',
     keyspace_hits: 'key值查找成功(命中)次数',

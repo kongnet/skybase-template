@@ -1,3 +1,12 @@
+## [0.1.67](https://github.com/kongnet/skybase-template/compare/v0.1.66...v0.1.67) (2022-09-08)
+
+
+### :zap:
+
+* redis指标增加hitRatio ([8bd77ae](https://github.com/kongnet/skybase-template/commit/8bd77aeb6f11a3624bdc182445d53814321d2c1d))
+
+
+
 ## [0.1.66](https://github.com/kongnet/skybase-template/compare/v0.1.65...v0.1.66) (2022-09-07)
 
 
