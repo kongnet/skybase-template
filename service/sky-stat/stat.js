@@ -343,8 +343,10 @@ async function getRedis () {
 
   let className = ''
   let redisArr = []
+  let redisObj = {}
   let redisDescObj = {
     latency: 'Redis响应一个请求的时间',
+    hitRate: '缓存命中率',
     instantaneous_ops_per_sec: '平均每秒处理请求总数',
     used_memory: '已使用内存',
     used_memory_human: '已使用内存',
@@ -373,6 +375,7 @@ async function getRedis () {
     rdb_last_save_time: '最后一次持久化保存粗盘的时间戳',
     rdb_changes_since_last_save: '自最后一次持久化以来数据库的更改数',
     rejected_connections: '由于达到maxclient限制而被拒绝的连接数',
+    keyspace_hits: 'key值查找成功(命中)次数',
     keyspace_misses: 'key值查找失败(没命中)次数',
     master_link_down_since_seconds: '主从断开的持续时间(秒)',
     sync_partial_err: '从半同步复制失败的次数,是否需要增加同步缓存'
@@ -383,6 +386,10 @@ async function getRedis () {
     } else {
       if (x.length > 0) {
         let item = x.split(':')
+        redisObj[item[0]] = {
+          v: item[1],
+          class: className
+        }
         redisArr.push({
           Variable_name: item[0],
           Value: item[1],
@@ -399,6 +406,22 @@ async function getRedis () {
       redisDescObj[x['Variable_name']] || '',
       x['class']
     ])
+  redisObj['hitRate'] = {
+    v:
+      (
+        (+redisObj['keyspace_hits'].v /
+          (+redisObj['keyspace_hits'].v + +redisObj['keyspace_misses'].v)) *
+        100
+      ).toFixed() + '%',
+    class: redisObj['keyspace_hits'].class
+  }
+  redisArr.push([
+    'hitRate',
+    redisObj['hitRate'].v,
+    redisDescObj['hitRate'],
+    redisObj['hitRate'].class
+  ])
+  redisArr = redisArr.orderBy([3], ['asc'])
   htmlStr = $.tools.genTemp.gridTable(
     [
       {
