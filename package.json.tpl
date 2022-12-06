@@ -9,7 +9,7 @@
     "testapi": "node ./tool/scanNoParam.js",
     "cz": "git add . && git status && git cz",
     "api": "node ./tool/api2markdown.js",
-    "swagger": "node ./tool/api2swagger.js 127.0.0.1:13000"
+    "swagger": "node ./tool/api2swagger.js"
   },
   "author": "",
   "license": "MIT",
