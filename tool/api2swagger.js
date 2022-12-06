@@ -14,7 +14,7 @@ const $ = require('meeko')
 const pack = require('../package.json')
 
 // 默认拿测试环境的配置
-process.env.NODE_ENV = (process.argv && process.argv[2]) || 'test'
+process.env.NODE_ENV = (process.argv && process.argv[4]) || 'test'
 
 const hfs = {
   // 复制文件， 如果目标文件已存在，会覆盖
@@ -76,10 +76,7 @@ const hfs = {
    * */
   saveFile (filePath, fileData) {
     return this.mkdir(
-      filePath
-        .split(path.sep)
-        .slice(0, -1)
-        .join(path.sep)
+      filePath.split(path.sep).slice(0, -1).join(path.sep)
     ).then(function (succ) {
       if (!succ) {
         return false
@@ -158,7 +155,7 @@ const swagger = {
       email: (pack.author && pack.author.email) || ''
     }
   },
-  schemes: ['http', 'https'],
+  schemes: process.argv[3] === 'https' ? ['https', 'http'] : ['http', 'https'],
   host: [process.argv[2] || '127.0.0.1:13000'], // 域名，不以 / 结尾
   basePath: '//',
   consumes: [
