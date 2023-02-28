@@ -41,8 +41,7 @@ module.exports = {
           genEnum1: "@genEnum(['5',6,7])",
           genEnum2: "@genEnum(['5x','6x','7x'])",
           genEnum3: "@genEnum([[],null,''])",
-          img:
-            "@genEnum(['https://','http://'])resource.xxx.com/@genData('0123456789',11)/company/moments/@genData('abcdefghijklmnopqrstuvwxyz0123456789',32).jpeg",
+          img: "@genEnum(['https://','http://'])resource.xxx.com/@genData('0123456789',11)/company/moments/@genData('abcdefghijklmnopqrstuvwxyz0123456789',32).jpeg",
           bingImg:
             'https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture',
           skuCode: /NO-\d{4}-\d{4}-\d{2}/,
@@ -199,15 +198,9 @@ module.exports = {
   echo: {
     name: 'echo',
     desc: 'echo',
-    method: 'post',
+    method: 'all',
     controller: 'mock/easy.echo',
-    param: {
-      str: {
-        name: 'str',
-        desc: 'echo的字符串',
-        type: 'string'
-      }
-    },
+    param: {},
     test: {},
     token: false,
     needSign: false,

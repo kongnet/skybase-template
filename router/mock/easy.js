@@ -71,8 +71,8 @@ module.exports = {
     ctx.body = `<img src='https://cn.bing.com${r.data.images[0].url}'></>`
   },
   async echo (ctx) {
-    const { str } = ctx.checkedData.data
-    ctx.body = str
+    // const { str } = ctx.checkedData.data
+    ctx.body = ctx
   },
   async qrcode (ctx) {
     const { str } = ctx.checkedData.data
@@ -90,7 +90,13 @@ module.exports = {
 }
 */
   async googleQR (ctx) {
-    const qrURL = speakeasy.otpauthURL({ secret: '4b4823526f47253672454539497423296749326c3157262358323a45313b7357', encoding: 'hex', label: 'Sky2021 Secret', algorithm: 'sha512' })
+    const qrURL = speakeasy.otpauthURL({
+      secret:
+        '4b4823526f47253672454539497423296749326c3157262358323a45313b7357',
+      encoding: 'hex',
+      label: 'Sky2021 Secret',
+      algorithm: 'sha512'
+    })
     ctx.type = 'html'
     ctx.body = 'Sky2021 Secret<br>' + $.qrcode.generateHTML(qrURL)
   },
@@ -104,6 +110,8 @@ module.exports = {
       })
     }
     ctx.type = 'html'
-    ctx.body = verifyFuc(userToken) ? '🔥ok' : '😶请先添加<a href="./googleQR">Sky2021 Secret</a>'
+    ctx.body = verifyFuc(userToken)
+      ? '🔥ok'
+      : '😶请先添加<a href="./googleQR">Sky2021 Secret</a>'
   }
 }
