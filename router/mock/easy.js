@@ -72,6 +72,7 @@ module.exports = {
   },
   async echo (ctx) {
     // const { str } = ctx.checkedData.data
+    console.log(ctx)
     ctx.body = ctx
   },
   async qrcode (ctx) {
