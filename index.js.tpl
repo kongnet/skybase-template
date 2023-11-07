@@ -40,6 +40,8 @@ sky.start(config, async () => {
   console.log('http://127.0.0.1:13000/skyapi/probe/mysql','查看探针例子')
   console.log('http://127.0.0.1:13000/skyapi/mock/getEmpty','最简单的api例子')
   console.log('http://127.0.0.1:13000/skyapi/mock/getHtml','html返回例子')
+  console.log('http://127.0.0.1:13000/skyapi/mock/getEchartHtml','通用chart模版')
+  
   console.log('http://127.0.0.1:13000/skyapi/mock/getUrl?url=http://www.baidu.com','获取url代码和内容')
   console.log('http://127.0.0.1:13000/skyapi/mock/getBing','获取bing最新的背景图')
 

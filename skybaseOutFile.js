@@ -145,6 +145,12 @@ function genConfig (obj) {
       }
     },
     template: {
+      'echart-responsive-box.html': [
+        path.join(dir, 'template', 'echart-responsive-box.html'),
+        null,
+        '通用chart模版'
+      ],
+
       'grid-mysql.html': [
         path.join(dir, 'template', 'grid-mysql.html'),
         null,

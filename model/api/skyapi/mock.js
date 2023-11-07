@@ -166,6 +166,17 @@ module.exports = {
     needSign: false,
     front: true
   },
+  getEchartHtml: {
+    name: 'getEchartHtml',
+    desc: 'getEchartHtml',
+    method: 'get',
+    controller: 'mock/easy.getEchartHtml',
+    param: {},
+    test: {},
+    token: false,
+    needSign: false,
+    front: true
+  },
   getUrl: {
     name: 'getUrl',
     desc: 'getUrl',

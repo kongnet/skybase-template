@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        display: flex;
+        flex-flow: row wrap;
+        margin-left: 2px;
+        margin-right: 2px;
+      }
+      .container .item-box {
+        width: 33.33%;
+        height: 350px;
+        padding: 0 2px;
+        margin: 2px 0;
+      }
+      .container .item-box .inner-box {
+        height: 100%;
+        background-color: #ededed;
+        border-radius: 4px;
+      }
+      @media screen and (max-width: 992px) {
+        .container .item-box {
+          width: 50%;
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        .container .item-box {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      {{# for(let i=0;i < d.box.length;i++){ }}
+      <div id="chart{{ i + 1 }}" class="item-box">
+        <div class="inner-box">Chart{{ i + 1 }}</div>
+      </div>
+      {{# } }}
+    </div>
+
+    <script
+      type="text/javascript"
+      src="//fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"
+    ></script>
+    <!-- Uncomment this line if you want to dataTool extension
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/extension/dataTool.min.js"></script>
+    -->
+    <!-- Uncomment this line if you want to use gl extension
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+    -->
+    <!-- Uncomment this line if you want to echarts-stat extension
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+    -->
+    <!-- Uncomment this line if you want to use map
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+    -->
+    <!-- Uncomment these two lines if you want to use bmap extension
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/extension/bmap.min.js"></script>
+    -->
+    {{# for(let i=0;i < d.box.length;i++){ }}
+    {{#   if(d.box[i].option) { }}
+
+    <script type="text/javascript">
+      var dom = document.getElementById('chart{{i+1}}')
+      var myChart = echarts.init(dom, null, {
+        renderer: 'canvas',
+        useDirtyRect: false
+      })
+      var app = {}
+      var option
+      option = {{ JSON.stringify(d.box[i].option) }}
+      if (option && typeof option === 'object') {
+        myChart.setOption(option)
+      }
+      window.addEventListener('resize', myChart.resize)
+    </script>
+    {{#   } }}
+    {{# } }}
+  </body>
+</html>
