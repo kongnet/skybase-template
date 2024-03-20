@@ -9,13 +9,13 @@ module.exports = {
     user: 'root',
     password: '123456',
     database: 'mysql', // 一般root才有访问此数据库权限
-    pool: 1000,
+    pool: 100,
     timeout: 60000,
     charset: 'utf8mb4',
     supportBigNumbers: true,
     bigNumberStrings: true,
     multipleStatements: true,
-    connectionLimit: 1000,
+    connectionLimit: 100,
     /*
     crudExtend: {
       // 打开后 db['tablename'].ex扩展方法

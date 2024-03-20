@@ -6,12 +6,13 @@ module.exports = {
     user: 'root',
     password: '123456',
     database: 'test',
-    pool: 1000,
+    pool: 100,
     timeout: 60000,
     charset: 'utf8mb4',
     supportBigNumbers: true,
+    bigNumberStrings: true,
     multipleStatements: true,
-    connectionLimit: 10,
+    connectionLimit: 100,
     showSql: true // 使用BaseModel的才有效，打印sql
   }
 }

@@ -1,3 +1,12 @@
+## [0.1.74](https://github.com/kongnet/skybase-template/compare/v0.1.73...v0.1.74) (2023-11-07)
+
+
+### :sparkles:
+
+* 增加chart模版 ([9690eb7](https://github.com/kongnet/skybase-template/commit/9690eb76f982b3d55f6957572c4dec3621709e5d))
+
+
+
 ## [0.1.73](https://github.com/kongnet/skybase-template/compare/v0.1.72...v0.1.73) (2023-03-03)
 
 
