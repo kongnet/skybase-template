@@ -92,7 +92,11 @@ module.exports = {
   ]
 
   /* 这段打开后，属性会冲掉原来skybase配置，否则使用默认skybase
-  ,
+   https: {
+    key: fs.readFileSync('./key.pem'),
+    cert: fs.readFileSync('./cert.pem'),
+    rejectUnauthorized: false
+  },
   name: packageJson.name,
   tokenName: packageJson.name,
   rootDir: path.dirname(process.mainModule.filename),
