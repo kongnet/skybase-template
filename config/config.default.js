@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 const packageJson = require('../package')
 module.exports = {
   name: packageJson.name,
@@ -92,6 +93,10 @@ module.exports = {
   ]
 
   /* 这段打开后，属性会冲掉原来skybase配置，否则使用默认skybase
+    // openssl genrsa -out key.pem
+    // openssl req -new -key key.pem -out csr.pem
+    // openssl x509 -req -days 365 -in csr.pem -signkey key.pem -out cert.pem 最后可以删除 csr
+
    https: {
     key: fs.readFileSync('./key.pem'),
     cert: fs.readFileSync('./cert.pem'),
