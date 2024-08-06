@@ -469,8 +469,7 @@ module.exports = {
       secret:
         '4b4823526f47253672454539497423296749326c3157262358323a45313b7357',
       encoding: 'hex',
-      label: 'Sky2021 Secret',
-      algorithm: 'sha512'
+      label: 'Sky2021 Secret'
     })
     ctx.type = 'html'
     ctx.body = 'Sky2021 Secret<br>' + $.qrcode.generateHTML(qrURL)
