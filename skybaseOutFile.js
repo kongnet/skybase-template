@@ -182,6 +182,11 @@ function genConfig (obj) {
       }
     },
     tool: {
+      'api-string-scan.js': [
+        path.join(dir, 'tool', 'api-string-scan.js'),
+        obj,
+        'string参数注入检查'
+      ],
       'mocha_api_test.js': [
         path.join(dir, 'tool', 'mocha_api_test.js'),
         obj,
