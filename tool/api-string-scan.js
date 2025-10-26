@@ -1,5 +1,4 @@
 'use strict'
-const { method } = require('bluebird')
 /* global describe */
 /* global it */
 const $ = require('meeko')
