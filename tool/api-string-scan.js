@@ -74,15 +74,12 @@ let apiParamArr = apiArr.filter(it => {
           tips: !it[2][i].reg ? 'noRegSet' : ''
         })
         if (it[2][i].reg) {
-          console.log('sss')
-
           let injIndex = injArr
             .filter(x => {
               return new RegExp(it[2][i].reg).test(x[1])
             })
             .map(x => x[0])
             .join(' ')
-          console.log(injIndex)
           apiParamObjArr.at(-1).tips += injIndex
         }
       }

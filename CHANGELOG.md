@@ -1,3 +1,12 @@
+## [0.1.79](https://github.com/kongnet/skybase-template/compare/v0.1.78...v0.1.79) (2025-10-26)
+
+
+### :sparkles:
+
+* 注入工具加入 ([8e23b8e](https://github.com/kongnet/skybase-template/commit/8e23b8e91dbf89060eb7099dfe506211f474ee81))
+
+
+
 ## [0.1.78](https://github.com/kongnet/skybase-template/compare/v0.1.77...v0.1.78) (2024-11-06)
 
 
