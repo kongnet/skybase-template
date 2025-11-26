@@ -11,7 +11,7 @@ module.exports = {
     password: '123456',
     database: 'mysql', // 一般root才有访问此数据库权限
     pool: 100,
-    timeout: 60000,
+    connectTimeout: 60000,
     charset: 'utf8mb4',
     supportBigNumbers: true,
     bigNumberStrings: true,
