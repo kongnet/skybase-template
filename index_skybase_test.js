@@ -1,20 +1,23 @@
 const sky = require('skybase')
 let config = require('./config')
 const skyConfig = require('./skyconfig')
-
+const SkyDB = require('j2sql2')
 const Pack = require('./package.json')
 
 const $ = require('meeko')
 global.$ = $
 config.beforeMount = async () => {
   // 连接mysql
-  const db = require('j2sql')(config.mysqlSkybaseTest) // 改成相应的数据库
-  await $.tools.waitNotEmpty(db, '_mysql')
-  global.db = db
 
+  const skyDB = new SkyDB({
+    mysql: config.mysqlSkybaseTest,
+    redis: config.redis
+  })
+  const db = await skyDB.mysql // 创建mysql实例
+  global.db = db
   // 连接redis 和 skyrts
-  const redis = sky.createIoredis(config.redis)
-  await redis.waitForConnected()
+  const redis = await skyDB.redis
+
   global.redis = redis
   global.rts = require('skyrts')({
     redis: redis,
@@ -23,7 +26,7 @@ config.beforeMount = async () => {
     points: 1000,
     prefix: Pack.name
   })
-/*
+  /*
   // 连接mysql main实例
   const dbMain = require('j2sql')(config.mysqlMain)
   await $.tools.waitNotEmpty(dbMain, '_mysql')
@@ -44,9 +47,15 @@ config = Object.assign(config, skyConfig) // 将默认config和本地的config�
 sky.start(config, async () => {
   console.log('项目成功启动')
   console.log('http://127.0.0.1:13000/skyapi/mock/first', '查看mock例子')
-  console.log('http://127.0.0.1:13000/skyapi/mock/img?size=128x128', '占位符例子')
+  console.log(
+    'http://127.0.0.1:13000/skyapi/mock/img?size=128x128',
+    '占位符例子'
+  )
   console.log('http://127.0.0.1:13000/skyapi/probe/mysql', '查看探针例子')
-  console.log('http://127.0.0.1:13000/skyapi/sky-stat/getOne?api=_skyapi_sky-stat_getAll&type=chart', '某接口5m 1h 1d图形统计')
+  console.log(
+    'http://127.0.0.1:13000/skyapi/sky-stat/getOne?api=_skyapi_sky-stat_getAll&type=chart',
+    '某接口5m 1h 1d图形统计'
+  )
 
   const dbExt = require('./model/crud.js') // 将一些操作扩展到 db.tableName.ext中去 数据库操作 详细见j2sql模块
   for (const i in db) {
@@ -56,4 +65,9 @@ sky.start(config, async () => {
     }
   }
   // $.log(await db.t1.R({d_flag:0}, {}, {c_time:-1}, 10000).run(0))
+
+  // 运行 MySQL 和 Redis 综合测试
+  const DatabaseTest = require('./lib/db-redis-test.js')
+  const dbTest = new DatabaseTest()
+  await dbTest.runAllTests()
 })

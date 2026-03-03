@@ -27,7 +27,13 @@ function genConfig (obj) {
       ]
     },
     job: {},
-    lib: {},
+    lib: {
+      'db-redis-test.js': [
+        path.join(dir, 'lib', 'db-redis-test.js'),
+        obj,
+        'MySQL和Redis综合测试模块'
+      ]
+    },
     middleware: {
       'sample-middleware.js': [
         path.join(dir, 'middleware', 'sample-middleware.js'),
@@ -257,6 +263,53 @@ function genConfig (obj) {
       'skybase主动配置文件'
     ],
     '.gitlab-ci.yml': null,
+    'AGENTS.md': [path.join(dir, 'AGENTS.md'), null, 'AI Agent编码指南'],
+    '.opencode': {
+      skills: {
+        'frontend-design': {
+          'SKILL.md': [
+            path.join(dir, '.opencode', 'skills', 'frontend-design', 'SKILL.md'),
+            null,
+            '前端设计技能文档'
+          ]
+        },
+        'sky-base': {
+          'SKILL.md': [
+            path.join(dir, '.opencode', 'skills', 'sky-base', 'SKILL.md'),
+            null,
+            'Skybase框架技能文档'
+          ]
+        },
+        'sky-meeko': {
+          'SKILL.md': [
+            path.join(dir, '.opencode', 'skills', 'sky-meeko', 'SKILL.md'),
+            null,
+            'Meeko工具库技能文档'
+          ]
+        },
+        'sky-mysql': {
+          'SKILL.md': [
+            path.join(dir, '.opencode', 'skills', 'sky-mysql', 'SKILL.md'),
+            null,
+            'MySQL操作技能文档'
+          ]
+        },
+        'sky-redis': {
+          'SKILL.md': [
+            path.join(dir, '.opencode', 'skills', 'sky-redis', 'SKILL.md'),
+            null,
+            'Redis操作技能文档'
+          ]
+        },
+        'sky-rts': {
+          'SKILL.md': [
+            path.join(dir, '.opencode', 'skills', 'sky-rts', 'SKILL.md'),
+            null,
+            'RTS时序统计技能文档'
+          ]
+        }
+      }
+    },
     www: {
       'upload_demo.html': [
         path.join(dir, 'www', 'upload_demo.html'),

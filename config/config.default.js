@@ -10,13 +10,13 @@ module.exports = {
     user: 'root',
     password: '123456',
     database: 'mysql', // 一般root才有访问此数据库权限
-    pool: 100,
+    pool: 10,
     connectTimeout: 60000,
     charset: 'utf8mb4',
     supportBigNumbers: true,
     bigNumberStrings: true,
     multipleStatements: true,
-    connectionLimit: 100,
+    connectionLimit: 10,
     /*
     crudExtend: {
       // 打开后 db['tablename'].ex扩展方法
@@ -29,8 +29,8 @@ module.exports = {
     port: 3306,
     user: 'root',
     password: '123456',
-    database: 'skybase-test', // 一般root才有访问此数据库权限
-    pool: 1000,
+    database: 'test', // 一般root才有访问此数据库权限
+    pool: 10,
     timeout: 60000,
     charset: 'utf8mb4',
     multipleStatements: true,

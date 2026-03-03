@@ -36,13 +36,20 @@
     }
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3",
-    "j2sql2": "^1.9.60",
-    "meeko": "^1.8.23",
+    "amqplib": "*",
+    "ioredis": "^4.9.5",
+    "j2sql2": "*",
+    "cz-jt": "*",
+    "mockjs": "*",
+    "skybase": "*",
+    "skyrts": "*",
+    "meeko": "*",
+    "standard": "^12.0.1",
+    "axios": "*",
+    "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
-    "skybase": "^0.1.23",
-    "skyrts": "^0.1.2",
-    "speakeasy": "^2.0.0"
+    "svg-captcha": "^1.4.0",
+    "speakeasy": "*"
   },
   "standard": {
     "globals": [
