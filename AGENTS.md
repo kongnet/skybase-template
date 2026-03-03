@@ -162,6 +162,40 @@ Test files located in `tests/`:
 - `axios` - HTTP requests
 - `request-promise-native` - Alternative HTTP client
 
+## Coding Principles
+
+- **模块化目录结构**: 创建新功能模块时，优先在以下目录创建对应的子目录：
+  - `model/api/` - API 接口定义
+  - `router/` - 路由处理
+  - `service/` - 业务逻辑
+  - `www/` - 静态资源
+  例如：创建一个"用户"模块 → `model/api/user/`, `router/user/`, `service/user/`
+
+- **优先使用 meeko**: 后续函数实现优先使用 meeko 工具库，减少手写代码。例如：
+  - 数组操作使用 `$.array` 扩展方法
+  - 字符串操作使用 `$.string` 扩展方法
+  - 日期操作使用 `$.date` 扩展方法
+  - 类型检查使用 `$.tools.isXXX` 系列函数
+  - 参数校验使用 `$.tools.checkParam`
+  - 延迟等待使用 `$.wait()` 或 `$.tools.wait()`
+
+- **模块测试用例**: 既想作为模块加载，又想单独测试部分或全部函数时，使用 meeko 的 TestCase 模式：
+  ```javascript
+  // 定义测试用例
+  const testCases = {
+    testA: async () => { /* 测试逻辑 */ },
+    testB: async () => { /* 测试逻辑 */ },
+    all: async () => { /* 运行所有测试 */ }
+  }
+  // 注册 TestCase（直接运行无输出，使用 -test 参数才执行）
+  new $.tools.TestCase(testCases)
+  ```
+  运行方式：
+  - `node xxx.js` - 无输出，不执行任何测试
+  - `node xxx.js -test` - 运行所有测试
+  - `node xxx.js -test testA` - 运行指定测试
+  - `node xxx.js -testList` - 列出所有测试用例
+
 ## Development Tools
 
 - **API Scanning**: `npm run apitest` - Validates API parameters

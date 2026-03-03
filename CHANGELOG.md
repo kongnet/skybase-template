@@ -1,4 +1,14 @@
-## [0.1.82](https://github.com/kongnet/skybase-template/compare/v0.1.78...v0.1.82) (2026-03-03)
+## [0.1.85](https://github.com/kongnet/skybase-template/compare/v0.1.84...v0.1.85) (2026-03-03)
+
+
+
+
+## [0.1.84](https://github.com/kongnet/skybase-template/compare/v0.1.83...v0.1.84) (2026-03-03)
+
+
+
+
+## [0.1.83](https://github.com/kongnet/skybase-template/compare/v0.1.78...v0.1.83) (2026-03-03)
 
 
 ### :ambulance:
@@ -7,6 +17,7 @@
 
 ### :sparkles:
 
+* ai-gen-testFunc ([31b2755](https://github.com/kongnet/skybase-template/commit/31b27553e5503903c9f5422d8cb728dcf7408bea))
 * 注入工具加入 ([8e23b8e](https://github.com/kongnet/skybase-template/commit/8e23b8e91dbf89060eb7099dfe506211f474ee81))
 
 
